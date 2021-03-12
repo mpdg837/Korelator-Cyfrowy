@@ -30,7 +30,7 @@ plt.show()
 
 
 while n<len(dane)-3:
-    sre = (dane[n]+dane[n+1]+dane[n+2]+dane[n+3]+dane[n+4])/4
+    sre = (dane[n]+dane[n+1]+dane[n+2]+dane[n+3]+dane[n+4])/5
 
     dane[n+1]=sre;
     dane[n + 2] = sre;
@@ -87,7 +87,7 @@ file.write(text)
 file.close()
 
 
-plt.plot(dane[0:1500])
+plt.plot(dane[0:5000])
 plt.ylim(-128,128)
 plt.ylabel('Sygnał')
 plt.show()
