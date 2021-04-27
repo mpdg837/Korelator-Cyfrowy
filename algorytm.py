@@ -41,7 +41,7 @@ plt.show()
 
 n = 0;
 for probka in odp:
-    if math.fabs(probka) > 4:
+    if math.fabs(probka) > 2.5:
         print("Zarejestrowano sygnał w próbce nr "+str(n))
         break
     n= n + 1
