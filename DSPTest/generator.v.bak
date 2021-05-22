@@ -1,0 +1,9 @@
+module generator(
+	output[7:0] tim;
+
+	output rst;
+	output ena;
+	output clk;
+);
+
+endmodule
