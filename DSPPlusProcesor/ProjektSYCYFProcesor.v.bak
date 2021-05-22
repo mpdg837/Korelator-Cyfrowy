@@ -1,0 +1,17 @@
+module ProjektSYCYFProcesor(
+	input clk,
+	input rst,
+	input[24:0] in,
+	
+	output[11:0] out
+);
+	 
+	 system u0 (
+        .clk_clk       (<connected-to-clk_clk>),       //   clk.clk
+        .reset_reset_n (<connected-to-reset_reset_n>), // reset.reset_n
+        .in_export     (<connected-to-in_export>),     //    in.export
+        .out_export    (<connected-to-out_export>)     //   out.export
+    );
+
+	 
+endmodule
