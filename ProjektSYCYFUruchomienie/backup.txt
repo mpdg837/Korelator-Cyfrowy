@@ -1,0 +1,2 @@
+
+DSPprocessor dsp(.ena(ena),.rst(inrst),.clk(clk1),.rec(rec),.tim(tim),.rdy(rdy));

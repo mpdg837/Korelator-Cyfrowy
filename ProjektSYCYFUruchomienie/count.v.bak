@@ -1,0 +1,21 @@
+module count(
+	input signed[13:0] tim,
+	input kilos,
+	
+	output signed[13:0] outtim
+);
+
+reg signed[13:0] outouttim;
+reg signed[26:0] tim1;
+always@(*)begin
+	if(kilos)begin
+		tim1 = tim*13'b0010011001100;
+		outtim = tim1 << 13;
+	end else 
+	begin
+		outouttum = tim;
+	end
+end
+
+assign outtim = outouttim;
+endmodule

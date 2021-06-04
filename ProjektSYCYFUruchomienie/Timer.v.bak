@@ -1,0 +1,22 @@
+module timer(
+	input clk,
+	input rst,
+	
+	output[12:0] tim
+);
+
+reg[12:0] n_tim;
+reg[12:0] r_tim;
+
+always@(posedge clk, posedge rst)begin
+	if(rst) r_tim <=0;
+	else r_tim <= n_tim;
+end
+
+always@(*)begin
+	n_tim = r_tim + 1;
+	
+end
+
+assign tim = r_tim;
+endmodule
