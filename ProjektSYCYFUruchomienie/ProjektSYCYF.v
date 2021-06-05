@@ -22,12 +22,13 @@ clk_div dv(.clk(clk),.clk1(clk1),.indiv(indiv));
 wire press;
 wire divpress;
 wire enapress;
+wire enarpress;
 
 przycisk p1(.mode(0),.in(rst),.clk(clk),.press(press));
 przycisk p2(.mode(1),.in(divp),.clk(clk),.press(divpress));
-przycisk p3(.mode(1),.in(enap),.clk(clk),.press(enapress));
+przycisk p3(.mode(1),.in(enap),.clk(clk),.press(enapress),.rspress(enarpress));
 
-wire inrst = ~press;
+wire inrst = ~press || ~enarpress;
 wire indiv = ~divpress;
 wire ena = ~enapress;
 wire kilo = ~kilop;

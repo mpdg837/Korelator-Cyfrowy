@@ -3,8 +3,8 @@ module timer1kHz(
 	output clk0
 );
 
-reg[17:0] f_tim=0;
-reg[17:0] n_tim=0;
+reg[16:0] f_tim=0;
+reg[16:0] n_tim=0;
 
 reg f_clk_0=0;
 reg n_clk_0=0;
@@ -18,9 +18,8 @@ always@(*)begin
 	n_tim = f_tim + 1;
 	n_clk_0 = f_clk_0;
 	
-	if(n_tim > 50000) begin
+	if(n_tim == 0) begin
 		n_clk_0 = ~f_clk_0;
-		n_tim = 0;
 	end
 end
 

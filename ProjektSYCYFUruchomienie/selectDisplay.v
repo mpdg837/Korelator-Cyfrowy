@@ -31,7 +31,7 @@ always@(*)begin
 end
 
 always@(*)begin
-	if(~ena) n_sel = 4'b1111;
+	if(~ena || rst) n_sel = 4'b1111;
 	else
 	case(n_sn)
 		0: n_sel = 4'b1110;

@@ -3,10 +3,10 @@ module segment7(
      output reg[6:0] seg
      
 );
-//always block for converting bcd digit into 7 segment format
+
     always @(bcd)
     begin
-        case (bcd) //case statement
+        case (bcd) 
             0 : seg = 7'b1000000;
             1 : seg = 7'b1111001;
             2 : seg = 7'b0100100;
@@ -18,7 +18,7 @@ module segment7(
             8 : seg = 7'b0000000;
             9 : seg = 7'b0010000;
 				10: seg = 7'b0000110;
-            //switch off 7 segment character when the bcd digit is not a decimal number.
+            
             default : seg = 7'b1111111; 
         endcase
     end
