@@ -1,0 +1,20 @@
+module keyInput(
+	input csi_clk,
+	input rsi_reset_n,
+	
+	// Avalon MM
+	
+	input avs_s0_write,
+	input avs_s0_read,
+	input[3:0] avs_s0_address,
+	input[31:0] avs_s0_writedata,
+	
+	output[31:0] avs_s0_readdata,
+	
+	// Output 
+	input[3:0] in_key,
+	output[3:0] out_led
+);
+
+endmodule
+

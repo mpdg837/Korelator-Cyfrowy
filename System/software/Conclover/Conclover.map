@@ -1,0 +1,620 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                              obj/default/drivers/display/display_stdio.o (__divsi3)
+c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+                              obj/default/drivers/display/display_stdio.o (__mulsi3)
+../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+                              ../Conclover_bsp//obj/HAL/src/crt0.o (alt_load)
+../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+                              ../Conclover_bsp//obj/HAL/src/crt0.o (alt_main)
+../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+                              obj/default/hello_world_small.o (alt_printf)
+../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+                              ../Conclover_bsp/\libhal_bsp.a(alt_printf.o) (alt_putchar)
+../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+                              ../Conclover_bsp/\libhal_bsp.a(alt_main.o) (alt_irq_init)
+../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                              ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o) (altera_avalon_jtag_uart_write)
+../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                              ../Conclover_bsp/\libhal_bsp.a(alt_load.o) (alt_dcache_flush_all)
+../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                              ../Conclover_bsp/\libhal_bsp.a(alt_load.o) (alt_icache_flush_all)
+../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                              ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o) (altera_nios2_gen2_irq_init)
+
+Allocating common symbols
+Common symbol       size              file
+
+display_buffer      0x4               obj/default/drivers/display/display_stdio.o
+buffer              0x80              obj/default/hello_world_small.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+reset            0x0000000000000000 0x0000000000000020
+RAM              0x0000000000000020 0x0000000000003fe0
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD ../Conclover_bsp//obj/HAL/src/crt0.o
+LOAD obj/default/drivers/conclover/conclover.o
+LOAD obj/default/drivers/display/display_stdio.o
+LOAD obj/default/drivers/keys/keys.o
+LOAD obj/default/drivers/timer/timer.o
+LOAD obj/default/drivers/uart/uart_receiver.o
+LOAD obj/default/drivers/uart/uart_transmitter.o
+LOAD obj/default/hello_world_small.o
+LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libstdc++.a
+LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libm.a
+LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a
+START GROUP
+LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a
+LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a
+LOAD ../Conclover_bsp/\libhal_bsp.a
+LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libm.a
+END GROUP
+LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a
+                0x0000000000000000                __alt_mem_RAM = 0x0
+
+.entry          0x0000000000000000       0x20
+ *(.entry)
+ .entry         0x0000000000000000       0x20 ../Conclover_bsp//obj/HAL/src/crt0.o
+                0x0000000000000000                __reset
+                0x000000000000000c                _exit
+
+.exceptions     0x0000000000000020        0x0
+                0x0000000000000020                PROVIDE (__ram_exceptions_start, ABSOLUTE (.))
+                0x0000000000000020                . = ALIGN (0x20)
+ *(.irq)
+ *(.exceptions.entry.label)
+ *(.exceptions.entry.user)
+ *(.exceptions.entry.ecc_fatal)
+ *(.exceptions.entry)
+ *(.exceptions.irqtest.user)
+ *(.exceptions.irqtest)
+ *(.exceptions.irqhandler.user)
+ *(.exceptions.irqhandler)
+ *(.exceptions.irqreturn.user)
+ *(.exceptions.irqreturn)
+ *(.exceptions.notirq.label)
+ *(.exceptions.notirq.user)
+ *(.exceptions.notirq)
+ *(.exceptions.soft.user)
+ *(.exceptions.soft)
+ *(.exceptions.unknown.user)
+ *(.exceptions.unknown)
+ *(.exceptions.exit.label)
+ *(.exceptions.exit.user)
+ *(.exceptions.exit)
+ *(.exceptions)
+                0x0000000000000020                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
+                0x0000000000000020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
+
+.text           0x0000000000000020      0xe28
+                [!provide]                        PROVIDE (stext, ABSOLUTE (.))
+ *(.interp)
+ *(.hash)
+ *(.dynsym)
+ *(.dynstr)
+ *(.gnu.version)
+ *(.gnu.version_d)
+ *(.gnu.version_r)
+ *(.rel.init)
+ *(.rela.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rela.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rela.ctors)
+ *(.rel.dtors)
+ *(.rela.dtors)
+ *(.rel.got)
+ *(.rela.got)
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+ *(.rel.plt)
+ *(.rela.plt)
+ *(.rel.dyn)
+ *(.init)
+ *(.plt)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000000000020       0x3c ../Conclover_bsp//obj/HAL/src/crt0.o
+                0x0000000000000020                _start
+ .text          0x000000000000005c       0x98 obj/default/drivers/conclover/conclover.o
+                0x000000000000005c                concloverSetValues
+                0x00000000000000ac                conclove
+ .text          0x00000000000000f4      0x3b8 obj/default/drivers/display/display_stdio.o
+                0x00000000000000f4                display_displaychar
+                0x000000000000017c                add_to_buffer
+                0x00000000000001a8                display_putpartchar
+                0x00000000000001d8                display_load_buffer
+                0x0000000000000208                display_set_tube_lightness
+                0x0000000000000220                display_set_lightness
+                0x000000000000026c                display_set_freq
+                0x0000000000000280                display_put_dot
+                0x000000000000029c                display_remove_dot
+                0x00000000000002b4                diplay_wait_for_refresh
+                0x00000000000002d0                display_clear
+                0x0000000000000314                display_putchar
+                0x000000000000039c                display_printf
+                0x00000000000003e4                display_abs
+                0x00000000000003f4                display_put_number
+ .text          0x00000000000004ac       0xa0 obj/default/drivers/keys/keys.o
+                0x00000000000004ac                is_pressed
+                0x00000000000004dc                detect_pressed_key
+                0x0000000000000504                wait_for_press
+                0x0000000000000524                wait_for_press_key
+ .text          0x000000000000054c       0x44 obj/default/drivers/timer/timer.o
+                0x000000000000054c                reset_timer
+                0x000000000000055c                get_time
+                0x000000000000056c                set_timer
+                0x000000000000057c                wait
+ .text          0x0000000000000590      0x1e4 obj/default/drivers/uart/uart_receiver.o
+                0x0000000000000590                cleanBuffer
+                0x00000000000005ac                receiveSingleLine
+                0x0000000000000638                receive
+                0x00000000000006f0                beginReceiver
+                0x0000000000000768                closeReceiver
+ .text          0x0000000000000774       0x70 obj/default/drivers/uart/uart_transmitter.o
+                0x0000000000000774                sendIt
+ .text          0x00000000000007e4        0x0 obj/default/hello_world_small.o
+ .text.startup  0x00000000000007e4      0x15c obj/default/hello_world_small.o
+                0x00000000000007e4                main
+ .text          0x0000000000000940      0x1b4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                0x0000000000000940                __divsi3
+                0x00000000000009c4                __modsi3
+                0x0000000000000a38                __udivsi3
+                0x0000000000000a9c                __umodsi3
+ .text          0x0000000000000af4       0x28 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+                0x0000000000000af4                __mulsi3
+ .text          0x0000000000000b1c       0xe0 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+                0x0000000000000b1c                alt_load
+ .text          0x0000000000000bfc       0x2c ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+                0x0000000000000bfc                alt_main
+ .text          0x0000000000000c28      0x170 ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+                0x0000000000000c28                alt_printf
+ .text          0x0000000000000d98       0x48 ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+                0x0000000000000d98                alt_putchar
+ .text          0x0000000000000de0       0x24 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x0000000000000de0                alt_irq_init
+                0x0000000000000e00                alt_sys_init
+ .text          0x0000000000000e04       0x34 ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x0000000000000e04                altera_avalon_jtag_uart_write
+ .text          0x0000000000000e38        0x4 ../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                0x0000000000000e38                alt_dcache_flush_all
+ .text          0x0000000000000e3c        0x4 ../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                0x0000000000000e3c                alt_icache_flush_all
+ .text          0x0000000000000e40        0x8 ../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                0x0000000000000e40                altera_nios2_gen2_irq_init
+ *(.gnu.warning.*)
+ *(.fini)
+                [!provide]                        PROVIDE (__etext, ABSOLUTE (.))
+                [!provide]                        PROVIDE (_etext, ABSOLUTE (.))
+                [!provide]                        PROVIDE (etext, ABSOLUTE (.))
+ *(.eh_frame_hdr)
+                0x0000000000000e48                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__preinit_array_start, ABSOLUTE (.))
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end, ABSOLUTE (.))
+                [!provide]                        PROVIDE (__init_array_start, ABSOLUTE (.))
+ *(.init_array)
+                [!provide]                        PROVIDE (__init_array_end, ABSOLUTE (.))
+                [!provide]                        PROVIDE (__fini_array_start, ABSOLUTE (.))
+ *(.fini_array)
+                [!provide]                        PROVIDE (__fini_array_end, ABSOLUTE (.))
+ *(.eh_frame)
+ *(.gcc_except_table .gcc_except_table.*)
+ *(.dynamic)
+                [!provide]                        PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+ *(.ctors)
+ *(SORT(.ctors.*))
+                [!provide]                        PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                [!provide]                        PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+ *(.dtors)
+ *(SORT(.dtors.*))
+                [!provide]                        PROVIDE (__DTOR_END__, ABSOLUTE (.))
+ *(.jcr)
+                0x0000000000000e48                . = ALIGN (0x4)
+
+.rodata         0x0000000000000e48       0x58
+                0x0000000000000e48                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x0000000000000e48                . = ALIGN (0x4)
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.4
+                0x0000000000000e48       0x58 obj/default/hello_world_small.o
+ *(.rodata1)
+                0x0000000000000ea0                . = ALIGN (0x4)
+                0x0000000000000ea0                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x0000000000000e48                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+
+.rwdata         0x0000000000000ea0     0x13a4 load address 0x0000000000002244
+                0x0000000000000ea0                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x0000000000000ea0                . = ALIGN (0x4)
+ *(.got.plt)
+ *(.got)
+ *(.data1)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000000000ea0        0x0 ../Conclover_bsp//obj/HAL/src/crt0.o
+ .data          0x0000000000000ea0        0x0 obj/default/drivers/conclover/conclover.o
+ .data          0x0000000000000ea0        0x0 obj/default/drivers/display/display_stdio.o
+ .data          0x0000000000000ea0        0x0 obj/default/drivers/keys/keys.o
+ .data          0x0000000000000ea0        0x0 obj/default/drivers/timer/timer.o
+ .data          0x0000000000000ea0        0x0 obj/default/drivers/uart/uart_receiver.o
+ .data          0x0000000000000ea0        0x0 obj/default/drivers/uart/uart_transmitter.o
+ .data          0x0000000000000ea0     0x139a obj/default/hello_world_small.o
+                0x0000000000000ea0                in
+                0x0000000000002228                signal
+ .data          0x000000000000223a        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .data          0x000000000000223a        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .data          0x000000000000223a        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+ .data          0x000000000000223a        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+ .data          0x000000000000223a        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+ .data          0x000000000000223a        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+ .data          0x000000000000223a        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .data          0x000000000000223a        0x0 ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x000000000000223a        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x000000000000223a        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x000000000000223a        0x0 ../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                0x000000000000a23a                _gp = ABSOLUTE ((. + 0x8000))
+                [!provide]                        PROVIDE (gp, _gp)
+ *(.rwdata .rwdata.*)
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ *fill*         0x000000000000223a        0x2 
+ .sdata         0x000000000000223c        0x4 obj/default/drivers/uart/uart_receiver.o
+                0x000000000000223c                wiad
+ .sdata         0x0000000000002240        0x4 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x0000000000002240                Debug_UART
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+                0x0000000000002244                . = ALIGN (0x4)
+                0x0000000000002244                _edata = ABSOLUTE (.)
+                [!provide]                        PROVIDE (edata, ABSOLUTE (.))
+                0x0000000000002244                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x0000000000002244                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+
+.bss            0x00000000000035e8       0x90
+                0x00000000000035e8                __bss_start = ABSOLUTE (.)
+                [!provide]                        PROVIDE (__sbss_start, ABSOLUTE (.))
+                [!provide]                        PROVIDE (___sbss_start, ABSOLUTE (.))
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss          0x00000000000035e8        0x4 obj/default/drivers/display/display_stdio.o
+                0x00000000000035e8                display_buffer
+ .sbss          0x00000000000035ec        0xc ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+                0x00000000000035ec                alt_envp
+                0x00000000000035f0                alt_argv
+                0x00000000000035f4                alt_argc
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+ *(.scommon)
+                [!provide]                        PROVIDE (__sbss_end, ABSOLUTE (.))
+                [!provide]                        PROVIDE (___sbss_end, ABSOLUTE (.))
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x00000000000035f8        0x0 ../Conclover_bsp//obj/HAL/src/crt0.o
+ .bss           0x00000000000035f8        0x0 obj/default/drivers/conclover/conclover.o
+ .bss           0x00000000000035f8        0x0 obj/default/drivers/display/display_stdio.o
+ .bss           0x00000000000035f8        0x0 obj/default/drivers/keys/keys.o
+ .bss           0x00000000000035f8        0x0 obj/default/drivers/timer/timer.o
+ .bss           0x00000000000035f8        0x0 obj/default/drivers/uart/uart_receiver.o
+ .bss           0x00000000000035f8        0x0 obj/default/drivers/uart/uart_transmitter.o
+ .bss           0x00000000000035f8        0x0 obj/default/hello_world_small.o
+ .bss           0x00000000000035f8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .bss           0x00000000000035f8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .bss           0x00000000000035f8        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+ .bss           0x00000000000035f8        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+ .bss           0x00000000000035f8        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+ .bss           0x00000000000035f8        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+ .bss           0x00000000000035f8        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .bss           0x00000000000035f8        0x0 ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x00000000000035f8        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x00000000000035f8        0x0 ../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x00000000000035f8        0x0 ../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ *(COMMON)
+ COMMON         0x00000000000035f8       0x80 obj/default/hello_world_small.o
+                0x00000000000035f8                buffer
+                0x0000000000003678                . = ALIGN (0x4)
+                0x0000000000003678                __bss_end = ABSOLUTE (.)
+
+.RAM            0x0000000000003678        0x0
+                [!provide]                        PROVIDE (_alt_partition_RAM_start, ABSOLUTE (.))
+ *(.RAM .RAM. RAM.*)
+                0x0000000000003678                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (_alt_partition_RAM_end, ABSOLUTE (.))
+                0x0000000000003678                _end = ABSOLUTE (.)
+                0x0000000000003678                end = ABSOLUTE (.)
+                0x0000000000003678                __alt_stack_base = ABSOLUTE (.)
+                [!provide]                        PROVIDE (_alt_partition_RAM_load_addr, LOADADDR (.RAM))
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x23
+ *(.comment)
+ .comment       0x0000000000000000       0x23 obj/default/drivers/conclover/conclover.o
+                                         0x24 (size before relaxing)
+ .comment       0x0000000000000023       0x24 obj/default/drivers/display/display_stdio.o
+ .comment       0x0000000000000023       0x24 obj/default/drivers/keys/keys.o
+ .comment       0x0000000000000023       0x24 obj/default/drivers/timer/timer.o
+ .comment       0x0000000000000023       0x24 obj/default/drivers/uart/uart_receiver.o
+ .comment       0x0000000000000023       0x24 obj/default/drivers/uart/uart_transmitter.o
+ .comment       0x0000000000000023       0x24 obj/default/hello_world_small.o
+ .comment       0x0000000000000023       0x24 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .comment       0x0000000000000023       0x24 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .comment       0x0000000000000023       0x24 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+ .comment       0x0000000000000023       0x24 ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+ .comment       0x0000000000000023       0x24 ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+ .comment       0x0000000000000023       0x24 ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+ .comment       0x0000000000000023       0x24 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .comment       0x0000000000000023       0x24 ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .comment       0x0000000000000023       0x24 ../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .comment       0x0000000000000023       0x24 ../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .comment       0x0000000000000023       0x24 ../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x268
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x28 ../Conclover_bsp//obj/HAL/src/crt0.o
+ .debug_aranges
+                0x0000000000000028       0x20 obj/default/drivers/conclover/conclover.o
+ .debug_aranges
+                0x0000000000000048       0x20 obj/default/drivers/display/display_stdio.o
+ .debug_aranges
+                0x0000000000000068       0x20 obj/default/drivers/keys/keys.o
+ .debug_aranges
+                0x0000000000000088       0x20 obj/default/drivers/timer/timer.o
+ .debug_aranges
+                0x00000000000000a8       0x20 obj/default/drivers/uart/uart_receiver.o
+ .debug_aranges
+                0x00000000000000c8       0x20 obj/default/drivers/uart/uart_transmitter.o
+ .debug_aranges
+                0x00000000000000e8       0x20 obj/default/hello_world_small.o
+ .debug_aranges
+                0x0000000000000108       0x20 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_aranges
+                0x0000000000000128       0x20 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_aranges
+                0x0000000000000148       0x20 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_aranges
+                0x0000000000000168       0x20 ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_aranges
+                0x0000000000000188       0x20 ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_aranges
+                0x00000000000001a8       0x20 ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_aranges
+                0x00000000000001c8       0x20 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_aranges
+                0x00000000000001e8       0x20 ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_aranges
+                0x0000000000000208       0x20 ../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_aranges
+                0x0000000000000228       0x20 ../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_aranges
+                0x0000000000000248       0x20 ../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000     0x1da5
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000       0x5a ../Conclover_bsp//obj/HAL/src/crt0.o
+ .debug_info    0x000000000000005a       0xd5 obj/default/drivers/conclover/conclover.o
+ .debug_info    0x000000000000012f      0x505 obj/default/drivers/display/display_stdio.o
+ .debug_info    0x0000000000000634      0x195 obj/default/drivers/keys/keys.o
+ .debug_info    0x00000000000007c9      0x176 obj/default/drivers/timer/timer.o
+ .debug_info    0x000000000000093f      0x228 obj/default/drivers/uart/uart_receiver.o
+ .debug_info    0x0000000000000b67       0x94 obj/default/drivers/uart/uart_transmitter.o
+ .debug_info    0x0000000000000bfb      0x3b5 obj/default/hello_world_small.o
+ .debug_info    0x0000000000000fb0      0x2c6 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_info    0x0000000000001276       0xb4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_info    0x000000000000132a      0x1c9 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_info    0x00000000000014f3      0x169 ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_info    0x000000000000165c      0x14d ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_info    0x00000000000017a9      0x12a ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_info    0x00000000000018d3      0x185 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_info    0x0000000000001a58      0x197 ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_info    0x0000000000001bef       0x92 ../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x0000000000001c81       0x92 ../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x0000000000001d13       0x92 ../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+
+.debug_abbrev   0x0000000000000000      0xf7c
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000       0x12 ../Conclover_bsp//obj/HAL/src/crt0.o
+ .debug_abbrev  0x0000000000000012       0xa8 obj/default/drivers/conclover/conclover.o
+ .debug_abbrev  0x00000000000000ba      0x1ec obj/default/drivers/display/display_stdio.o
+ .debug_abbrev  0x00000000000002a6      0x115 obj/default/drivers/keys/keys.o
+ .debug_abbrev  0x00000000000003bb      0x150 obj/default/drivers/timer/timer.o
+ .debug_abbrev  0x000000000000050b      0x12b obj/default/drivers/uart/uart_receiver.o
+ .debug_abbrev  0x0000000000000636       0x92 obj/default/drivers/uart/uart_transmitter.o
+ .debug_abbrev  0x00000000000006c8      0x128 obj/default/hello_world_small.o
+ .debug_abbrev  0x00000000000007f0      0x10e c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_abbrev  0x00000000000008fe       0x6f c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_abbrev  0x000000000000096d       0xd8 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_abbrev  0x0000000000000a45       0xee ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_abbrev  0x0000000000000b33       0xd5 ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_abbrev  0x0000000000000c08       0xd2 ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_abbrev  0x0000000000000cda      0x107 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x0000000000000de1       0xd5 ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_abbrev  0x0000000000000eb6       0x42 ../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x0000000000000ef8       0x42 ../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x0000000000000f3a       0x42 ../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+
+.debug_line     0x0000000000000000      0xc8b
+ *(.debug_line)
+ .debug_line    0x0000000000000000       0x66 ../Conclover_bsp//obj/HAL/src/crt0.o
+ .debug_line    0x0000000000000066       0x81 obj/default/drivers/conclover/conclover.o
+ .debug_line    0x00000000000000e7      0x17a obj/default/drivers/display/display_stdio.o
+ .debug_line    0x0000000000000261       0x68 obj/default/drivers/keys/keys.o
+ .debug_line    0x00000000000002c9       0x57 obj/default/drivers/timer/timer.o
+ .debug_line    0x0000000000000320       0xa9 obj/default/drivers/uart/uart_receiver.o
+ .debug_line    0x00000000000003c9       0x6c obj/default/drivers/uart/uart_transmitter.o
+ .debug_line    0x0000000000000435      0x12c obj/default/hello_world_small.o
+ .debug_line    0x0000000000000561      0x105 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_line    0x0000000000000666       0x80 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_line    0x00000000000006e6       0xa4 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_line    0x000000000000078a       0xbd ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_line    0x0000000000000847      0x112 ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_line    0x0000000000000959       0x55 ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_line    0x00000000000009ae      0x101 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x0000000000000aaf       0xf0 ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_line    0x0000000000000b9f       0x4e ../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x0000000000000bed       0x4e ../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x0000000000000c3b       0x50 ../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+
+.debug_frame    0x0000000000000000      0x544
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x30 obj/default/drivers/conclover/conclover.o
+ .debug_frame   0x0000000000000030      0x160 obj/default/drivers/display/display_stdio.o
+ .debug_frame   0x0000000000000190       0x6c obj/default/drivers/keys/keys.o
+ .debug_frame   0x00000000000001fc       0x50 obj/default/drivers/timer/timer.o
+ .debug_frame   0x000000000000024c       0xa0 obj/default/drivers/uart/uart_receiver.o
+ .debug_frame   0x00000000000002ec       0x20 obj/default/drivers/uart/uart_transmitter.o
+ .debug_frame   0x000000000000030c       0x2c obj/default/hello_world_small.o
+ .debug_frame   0x0000000000000338       0x50 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_frame   0x0000000000000388       0x20 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_frame   0x00000000000003a8       0x30 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_frame   0x00000000000003d8       0x2c ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_frame   0x0000000000000404       0x54 ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_frame   0x0000000000000458       0x30 ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_frame   0x0000000000000488       0x3c ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_frame   0x00000000000004c4       0x20 ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .debug_frame   0x00000000000004e4       0x20 ../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_frame   0x0000000000000504       0x20 ../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_frame   0x0000000000000524       0x20 ../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+
+.debug_str      0x0000000000000000      0xa89
+ *(.debug_str)
+ .debug_str     0x0000000000000000       0xba obj/default/drivers/conclover/conclover.o
+                                         0xbf (size before relaxing)
+ .debug_str     0x00000000000000ba      0x1bd obj/default/drivers/display/display_stdio.o
+                                        0x25a (size before relaxing)
+ .debug_str     0x0000000000000277       0xad obj/default/drivers/keys/keys.o
+                                        0x118 (size before relaxing)
+ .debug_str     0x0000000000000324       0x94 obj/default/drivers/timer/timer.o
+                                        0x11b (size before relaxing)
+ .debug_str     0x00000000000003b8       0x96 obj/default/drivers/uart/uart_receiver.o
+                                        0x124 (size before relaxing)
+ .debug_str     0x000000000000044e       0x42 obj/default/drivers/uart/uart_transmitter.o
+                                         0xb2 (size before relaxing)
+ .debug_str     0x0000000000000490       0x39 obj/default/hello_world_small.o
+                                        0x1d1 (size before relaxing)
+ .debug_str     0x00000000000004c9      0x1a4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                                        0x1d2 (size before relaxing)
+ .debug_str     0x000000000000066d       0x40 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+                                        0x193 (size before relaxing)
+ .debug_str     0x00000000000006ad      0x172 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+                                        0x228 (size before relaxing)
+ .debug_str     0x000000000000081f       0x8f ../Conclover_bsp/\libhal_bsp.a(alt_main.o)
+                                        0x1a1 (size before relaxing)
+ .debug_str     0x00000000000008ae       0x59 ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+                                         0xf2 (size before relaxing)
+ .debug_str     0x0000000000000907       0x5f ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+                                        0x178 (size before relaxing)
+ .debug_str     0x0000000000000966       0x86 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+                                        0x211 (size before relaxing)
+ .debug_str     0x00000000000009ec       0x3f ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                                        0x201 (size before relaxing)
+ .debug_str     0x0000000000000a2b       0x1f ../Conclover_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                                        0x141 (size before relaxing)
+ .debug_str     0x0000000000000a4a       0x1f ../Conclover_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                                        0x141 (size before relaxing)
+ .debug_str     0x0000000000000a69       0x20 ../Conclover_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                                        0x148 (size before relaxing)
+
+.debug_loc      0x0000000000000000     0x1410
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000       0xc7 obj/default/drivers/conclover/conclover.o
+ .debug_loc     0x00000000000000c7      0x553 obj/default/drivers/display/display_stdio.o
+ .debug_loc     0x000000000000061a       0xcc obj/default/drivers/keys/keys.o
+ .debug_loc     0x00000000000006e6       0xf0 obj/default/drivers/timer/timer.o
+ .debug_loc     0x00000000000007d6      0x259 obj/default/drivers/uart/uart_receiver.o
+ .debug_loc     0x0000000000000a2f       0xb5 obj/default/drivers/uart/uart_transmitter.o
+ .debug_loc     0x0000000000000ae4      0x115 obj/default/hello_world_small.o
+ .debug_loc     0x0000000000000bf9      0x4ce c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_loc     0x00000000000010c7       0x93 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .debug_loc     0x000000000000115a      0x1de ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_loc     0x0000000000001338       0x2c ../Conclover_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_loc     0x0000000000001364       0x21 ../Conclover_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_loc     0x0000000000001385       0x8b ../Conclover_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_alt_sim_info
+                0x0000000000000000       0x10
+ *(.debug_alt_sim_info)
+ .debug_alt_sim_info
+                0x0000000000000000       0x10 ../Conclover_bsp//obj/HAL/src/crt0.o
+                0x0000000000004000                __alt_data_end = 0x4000
+                0x0000000000004000                PROVIDE (__alt_stack_pointer, __alt_data_end)
+                [!provide]                        PROVIDE (__alt_stack_limit, __alt_stack_base)
+                [!provide]                        PROVIDE (__alt_heap_start, end)
+                [!provide]                        PROVIDE (__alt_heap_limit, 0x4000)
+OUTPUT(Conclover.elf elf32-littlenios2)
+
+.debug_ranges   0x0000000000000000      0x1a8
+ .debug_ranges  0x0000000000000000       0x20 ../Conclover_bsp//obj/HAL/src/crt0.o
+ .debug_ranges  0x0000000000000020       0x30 obj/default/drivers/conclover/conclover.o
+ .debug_ranges  0x0000000000000050       0x40 obj/default/drivers/display/display_stdio.o
+ .debug_ranges  0x0000000000000090       0x18 obj/default/drivers/keys/keys.o
+ .debug_ranges  0x00000000000000a8       0x18 obj/default/drivers/uart/uart_receiver.o
+ .debug_ranges  0x00000000000000c0       0x28 obj/default/hello_world_small.o
+ .debug_ranges  0x00000000000000e8       0x60 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .debug_ranges  0x0000000000000148       0x48 ../Conclover_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_ranges  0x0000000000000190       0x18 ../Conclover_bsp/\libhal_bsp.a(alt_printf.o)

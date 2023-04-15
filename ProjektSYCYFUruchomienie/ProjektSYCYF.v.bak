@@ -1,7 +1,0 @@
-module ProjektSYCYF(
-	input clk;
-	input[7:0] sin;
-	input[7:0] rec;
-);
-
-endmodule
