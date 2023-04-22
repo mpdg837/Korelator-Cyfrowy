@@ -4,4 +4,4 @@
 void concloverSetValues(char*);
 void conclove(char*, char* output, int len);
 
-#endif CONCLOVER_FILE
+#endif

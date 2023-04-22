@@ -1,13 +1,13 @@
 Info: Starting: Create block symbol file (.bsf)
-Info: qsys-generate D:\IOTProject\mySystem.qsys --block-symbol-file --output-directory=D:\IOTProject\mySystem --family="Cyclone IV E" --part=EP4CE6E22C8
-Progress: Loading IOTProject/mySystem.qsys
+Info: qsys-generate E:\IOTProject1\mySystem.qsys --block-symbol-file --output-directory=E:\IOTProject1\mySystem --family="Cyclone IV E" --part=EP4CE6E22C8
+Progress: Loading IOTProject1/mySystem.qsys
 Progress: Reading input file
-Progress: Adding Buzzer [buzzer_module 1.0]
-Progress: Parameterizing module Buzzer
 Progress: Adding CPU [altera_nios2_gen2 18.1]
 Progress: Parameterizing module CPU
 Progress: Adding Clock [clock_source 18.1]
 Progress: Parameterizing module Clock
+Progress: Adding Conclover_0 [Conclover 1.0]
+Progress: Parameterizing module Conclover_0
 Progress: Adding Debug_UART [altera_avalon_jtag_uart 18.1]
 Progress: Parameterizing module Debug_UART
 Progress: Adding Input [input_key 1.0]
@@ -18,6 +18,8 @@ Progress: Adding Seven_Segment_Display [seg7 1.0]
 Progress: Parameterizing module Seven_Segment_Display
 Progress: Adding System_Timer [system_timer 1.0]
 Progress: Parameterizing module System_Timer
+Progress: Adding UART_Fast_0 [UART_Fast 1.0]
+Progress: Parameterizing module UART_Fast_0
 Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
@@ -27,15 +29,15 @@ Info: qsys-generate succeeded.
 Info: Finished: Create block symbol file (.bsf)
 Info: 
 Info: Starting: Create HDL design files for synthesis
-Info: qsys-generate D:\IOTProject\mySystem.qsys --synthesis=VERILOG --output-directory=D:\IOTProject\mySystem\synthesis --family="Cyclone IV E" --part=EP4CE6E22C8
-Progress: Loading IOTProject/mySystem.qsys
+Info: qsys-generate E:\IOTProject1\mySystem.qsys --synthesis=VERILOG --output-directory=E:\IOTProject1\mySystem\synthesis --family="Cyclone IV E" --part=EP4CE6E22C8
+Progress: Loading IOTProject1/mySystem.qsys
 Progress: Reading input file
-Progress: Adding Buzzer [buzzer_module 1.0]
-Progress: Parameterizing module Buzzer
 Progress: Adding CPU [altera_nios2_gen2 18.1]
 Progress: Parameterizing module CPU
 Progress: Adding Clock [clock_source 18.1]
 Progress: Parameterizing module Clock
+Progress: Adding Conclover_0 [Conclover 1.0]
+Progress: Parameterizing module Conclover_0
 Progress: Adding Debug_UART [altera_avalon_jtag_uart 18.1]
 Progress: Parameterizing module Debug_UART
 Progress: Adding Input [input_key 1.0]
@@ -46,25 +48,28 @@ Progress: Adding Seven_Segment_Display [seg7 1.0]
 Progress: Parameterizing module Seven_Segment_Display
 Progress: Adding System_Timer [system_timer 1.0]
 Progress: Parameterizing module System_Timer
+Progress: Adding UART_Fast_0 [UART_Fast 1.0]
+Progress: Parameterizing module UART_Fast_0
 Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
 Progress: Done reading input file
 Info: mySystem.Debug_UART: JTAG UART IP input clock need to be at least double (2x) the operating frequency of JTAG TCK on board
 Info: mySystem: Generating mySystem "mySystem" for QUARTUS_SYNTH
-Info: Buzzer: "mySystem" instantiated buzzer_module "Buzzer"
 Info: CPU: "mySystem" instantiated altera_nios2_gen2 "CPU"
+Info: Conclover_0: "mySystem" instantiated Conclover "Conclover_0"
 Info: Debug_UART: Starting RTL generation for module 'mySystem_Debug_UART'
-Info: Debug_UART:   Generation command is [exec D:/programs/fpga/quartus/bin64/perl/bin/perl.exe -I D:/programs/fpga/quartus/bin64/perl/lib -I D:/programs/fpga/quartus/sopc_builder/bin/europa -I D:/programs/fpga/quartus/sopc_builder/bin/perl_lib -I D:/programs/fpga/quartus/sopc_builder/bin -I D:/programs/fpga/quartus/../ip/altera/sopc_builder_ip/common -I D:/programs/fpga/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- D:/programs/fpga/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=mySystem_Debug_UART --dir=C:/Users/micha/AppData/Local/Temp/alt9413_6541166658571252989.dir/0007_Debug_UART_gen/ --quartus_dir=D:/programs/fpga/quartus --verilog --config=C:/Users/micha/AppData/Local/Temp/alt9413_6541166658571252989.dir/0007_Debug_UART_gen//mySystem_Debug_UART_component_configuration.pl  --do_build_sim=0  ]
+Info: Debug_UART:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=mySystem_Debug_UART --dir=C:/Users/micha/AppData/Local/Temp/alt9469_4190287574188000629.dir/0004_Debug_UART_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/micha/AppData/Local/Temp/alt9469_4190287574188000629.dir/0004_Debug_UART_gen//mySystem_Debug_UART_component_configuration.pl  --do_build_sim=0  ]
 Info: Debug_UART: Done RTL generation for module 'mySystem_Debug_UART'
 Info: Debug_UART: "mySystem" instantiated altera_avalon_jtag_uart "Debug_UART"
 Info: Input: "mySystem" instantiated input_key "Input"
 Info: RAM: Starting RTL generation for module 'mySystem_RAM'
-Info: RAM:   Generation command is [exec D:/programs/fpga/quartus/bin64/perl/bin/perl.exe -I D:/programs/fpga/quartus/bin64/perl/lib -I D:/programs/fpga/quartus/sopc_builder/bin/europa -I D:/programs/fpga/quartus/sopc_builder/bin/perl_lib -I D:/programs/fpga/quartus/sopc_builder/bin -I D:/programs/fpga/quartus/../ip/altera/sopc_builder_ip/common -I D:/programs/fpga/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- D:/programs/fpga/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=mySystem_RAM --dir=C:/Users/micha/AppData/Local/Temp/alt9413_6541166658571252989.dir/0009_RAM_gen/ --quartus_dir=D:/programs/fpga/quartus --verilog --config=C:/Users/micha/AppData/Local/Temp/alt9413_6541166658571252989.dir/0009_RAM_gen//mySystem_RAM_component_configuration.pl  --do_build_sim=0  ]
+Info: RAM:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=mySystem_RAM --dir=C:/Users/micha/AppData/Local/Temp/alt9469_4190287574188000629.dir/0006_RAM_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/micha/AppData/Local/Temp/alt9469_4190287574188000629.dir/0006_RAM_gen//mySystem_RAM_component_configuration.pl  --do_build_sim=0  ]
 Info: RAM: Done RTL generation for module 'mySystem_RAM'
 Info: RAM: "mySystem" instantiated altera_avalon_onchip_memory2 "RAM"
 Info: Seven_Segment_Display: "mySystem" instantiated seg7 "Seven_Segment_Display"
 Info: System_Timer: "mySystem" instantiated system_timer "System_Timer"
+Info: UART_Fast_0: "mySystem" instantiated UART_Fast "UART_Fast_0"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
@@ -72,23 +77,24 @@ Info: avalon_st_adapter_003: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
 Info: mm_interconnect_0: "mySystem" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: irq_mapper: "mySystem" instantiated altera_irq_mapper "irq_mapper"
 Info: rst_controller: "mySystem" instantiated altera_reset_controller "rst_controller"
 Info: cpu: Starting RTL generation for module 'mySystem_CPU_cpu'
-Info: cpu:   Generation command is [exec D:/Programs/FPGA/quartus/bin64//eperlcmd.exe -I D:/Programs/FPGA/quartus/bin64//perl/lib -I D:/programs/fpga/quartus/sopc_builder/bin/europa -I D:/programs/fpga/quartus/sopc_builder/bin/perl_lib -I D:/programs/fpga/quartus/sopc_builder/bin -I D:/programs/fpga/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I D:/programs/fpga/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I D:/programs/fpga/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I D:/programs/fpga/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- D:/programs/fpga/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=mySystem_CPU_cpu --dir=C:/Users/micha/AppData/Local/Temp/alt9413_6541166658571252989.dir/0014_cpu_gen/ --quartus_bindir=D:/Programs/FPGA/quartus/bin64/ --verilog --config=C:/Users/micha/AppData/Local/Temp/alt9413_6541166658571252989.dir/0014_cpu_gen//mySystem_CPU_cpu_processor_configuration.pl  --do_build_sim=0  ]
-Info: cpu: # 2023.02.25 11:39:51 (*) Starting Nios II generation
-Info: cpu: # 2023.02.25 11:39:51 (*)   Checking for plaintext license.
-Info: cpu: # 2023.02.25 11:39:56 (*)   Couldn't query license setup in Quartus directory D:/Programs/FPGA/quartus/bin64/
-Info: cpu: # 2023.02.25 11:39:56 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
-Info: cpu: # 2023.02.25 11:39:56 (*)   LM_LICENSE_FILE environment variable is empty
-Info: cpu: # 2023.02.25 11:39:56 (*)   Plaintext license not found.
-Info: cpu: # 2023.02.25 11:39:56 (*)   No license required to generate encrypted Nios II/e.
-Info: cpu: # 2023.02.25 11:39:56 (*)   Elaborating CPU configuration settings
-Info: cpu: # 2023.02.25 11:39:56 (*)   Creating all objects for CPU
-Info: cpu: # 2023.02.25 11:39:58 (*)   Generating RTL from CPU objects
-Info: cpu: # 2023.02.25 11:39:58 (*)   Creating plain-text RTL
-Info: cpu: # 2023.02.25 11:39:59 (*) Done Nios II generation
+Info: cpu:   Generation command is [exec C:/intelFPGA_lite/18.1/quartus/bin64//eperlcmd.exe -I C:/intelFPGA_lite/18.1/quartus/bin64//perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/intelfpga_lite/18.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=mySystem_CPU_cpu --dir=C:/Users/micha/AppData/Local/Temp/alt9469_4190287574188000629.dir/0012_cpu_gen/ --quartus_bindir=C:/intelFPGA_lite/18.1/quartus/bin64/ --verilog --config=C:/Users/micha/AppData/Local/Temp/alt9469_4190287574188000629.dir/0012_cpu_gen//mySystem_CPU_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2023.04.22 22:00:42 (*) Starting Nios II generation
+Info: cpu: # 2023.04.22 22:00:42 (*)   Checking for plaintext license.
+Info: cpu: # 2023.04.22 22:00:44 (*)   Couldn't query license setup in Quartus directory C:/intelFPGA_lite/18.1/quartus/bin64/
+Info: cpu: # 2023.04.22 22:00:44 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2023.04.22 22:00:44 (*)   LM_LICENSE_FILE environment variable is empty
+Info: cpu: # 2023.04.22 22:00:44 (*)   Plaintext license not found.
+Info: cpu: # 2023.04.22 22:00:44 (*)   No license required to generate encrypted Nios II/e.
+Info: cpu: # 2023.04.22 22:00:44 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2023.04.22 22:00:44 (*)   Creating all objects for CPU
+Info: cpu: # 2023.04.22 22:00:45 (*)   Generating RTL from CPU objects
+Info: cpu: # 2023.04.22 22:00:45 (*)   Creating plain-text RTL
+Info: cpu: # 2023.04.22 22:00:46 (*) Done Nios II generation
 Info: cpu: Done RTL generation for module 'mySystem_CPU_cpu'
 Info: cpu: "CPU" instantiated altera_nios2_gen2_unit "cpu"
 Info: CPU_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "CPU_data_master_translator"
@@ -99,19 +105,26 @@ Info: Debug_UART_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantia
 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
 Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
 Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
-Info: router_003: "mm_interconnect_0" instantiated altera_merlin_router "router_003"
+Info: router_004: "mm_interconnect_0" instantiated altera_merlin_router "router_004"
+Info: router_005: "mm_interconnect_0" instantiated altera_merlin_router "router_005"
+Info: router_011: "mm_interconnect_0" instantiated altera_merlin_router "router_011"
 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
 Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
+Info: cmd_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_002"
 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
 Info: cmd_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_001"
-Info: Reusing file D:/IOTProject/mySystem/synthesis/submodules/altera_merlin_arbitrator.sv
-Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: Reusing file E:/IOTProject1/mySystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_007: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_007"
+Info: Reusing file E:/IOTProject1/mySystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_demux_007: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_007"
 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
-Info: Reusing file D:/IOTProject/mySystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: Reusing file E:/IOTProject1/mySystem/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
-Info: Reusing file D:/IOTProject/mySystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: Reusing file E:/IOTProject1/mySystem/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_mux_002: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_002"
+Info: Reusing file E:/IOTProject1/mySystem/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
-Info: mySystem: Done "mySystem" with 30 modules, 43 files
+Info: mySystem: Done "mySystem" with 36 modules, 56 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

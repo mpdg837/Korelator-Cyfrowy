@@ -13,34 +13,33 @@
 # refer to the applicable agreement for further details.
 
 # Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-# File: D:\IOTProject\IOTProject.csv
-# Generated on: Sun Apr 09 18:40:28 2023
+# File: E:\IOTProject1\IOTProject.csv
+# Generated on: Sat Apr 22 22:34:03 2023
 
 # Note: The column header names should not be changed if you wish to import this .csv file into the Quartus Prime software.
 
 To,Direction,Location,I/O Bank,VREF Group,I/O Standard,Reserved,Current Strength,Slew Rate,Differential Pair,Strict Preservation
-uart_tx,Output,PIN_114,7,B7_N0,,,,,,
-uart_rx,Input,PIN_115,7,B7_N0,,,,,,
 clk_clk,Input,PIN_23,1,B1_N0,,,,,,
+input_key_0_keys_readdata[3],Output,PIN_87,5,B5_N0,,,,,,
+input_key_0_keys_readdata[2],Output,PIN_86,5,B5_N0,,,,,,
+input_key_0_keys_readdata[1],Output,PIN_85,5,B5_N0,,,,,,
+input_key_0_keys_readdata[0],Output,PIN_84,5,B5_N0,,,,,,
+input_key_0_keys_writebyteenable_n[3],Input,PIN_91,6,B6_N0,,,,,,
+input_key_0_keys_writebyteenable_n[2],Input,PIN_90,6,B6_N0,,,,,,
+input_key_0_keys_writebyteenable_n[1],Input,PIN_89,5,B5_N0,,,,,,
+input_key_0_keys_writebyteenable_n[0],Input,PIN_88,5,B5_N0,,,,,,
 reset_reset_n,Input,PIN_25,2,B2_N0,,,,,,
-inputin_leds[0],Output,PIN_84,5,B5_N0,,,,,,
-inputin_leds[1],Output,PIN_85,5,B5_N0,,,,,,
-inputin_leds[2],Output,PIN_86,5,B5_N0,,,,,,
-inputin_leds[3],Output,PIN_87,5,B5_N0,,,,,,
-inputin_keys[0],Input,PIN_88,5,B5_N0,,,,,,
-inputin_keys[1],Input,PIN_89,5,B5_N0,,,,,,
-inputin_keys[2],Input,PIN_90,6,B6_N0,,,,,,
-inputin_keys[3],Input,PIN_91,6,B6_N0,,,,,,
-buzzer_writeresponsevalid_n,Unknown,PIN_110,7,B7_N0,,,,,,
-sevensegment_output[1],Output,PIN_121,7,B7_N0,,,,,,
-sevensegment_output[2],Output,PIN_125,7,B7_N0,,,,,,
-sevensegment_output[5],Output,PIN_126,7,B7_N0,,,,,,
-sevensegment_output[6],Output,PIN_124,7,B7_N0,,,,,,
-sevensegment_output[7],Output,PIN_127,7,B7_N0,,,,,,
-sevensegment_output1[0],Output,PIN_133,8,B8_N0,,,,,,
-sevensegment_output1[1],Output,PIN_135,8,B8_N0,,,,,,
-sevensegment_output1[2],Output,PIN_136,8,B8_N0,,,,,,
-sevensegment_output1[3],Output,PIN_137,8,B8_N0,,,,,,
-sevensegment_output[0],Output,PIN_128,8,B8_N0,,,,,,
-sevensegment_output[3],Output,PIN_129,8,B8_N0,,,,,,
-sevensegment_output[4],Output,PIN_132,8,B8_N0,,,,,,
+segmentdisplay_0_display_segment[7],Output,PIN_127,7,B7_N0,,,,,,
+segmentdisplay_0_display_segment[6],Output,PIN_124,7,B7_N0,,,,,,
+segmentdisplay_0_display_segment[5],Output,PIN_126,7,B7_N0,,,,,,
+segmentdisplay_0_display_segment[4],Output,PIN_132,8,B8_N0,,,,,,
+segmentdisplay_0_display_segment[3],Output,PIN_129,8,B8_N0,,,,,,
+segmentdisplay_0_display_segment[2],Output,PIN_125,7,B7_N0,,,,,,
+segmentdisplay_0_display_segment[1],Output,PIN_121,7,B7_N0,,,,,,
+segmentdisplay_0_display_segment[0],Output,PIN_128,8,B8_N0,,,,,,
+segmentdisplay_0_display_select[3],Output,PIN_137,8,B8_N0,,,,,,
+segmentdisplay_0_display_select[2],Output,PIN_136,8,B8_N0,,,,,,
+segmentdisplay_0_display_select[1],Output,PIN_135,8,B8_N0,,,,,,
+segmentdisplay_0_display_select[0],Output,PIN_133,8,B8_N0,,,,,,
+uart_fast_0_uart_rx,Input,PIN_115,7,B7_N0,,,,,,
+uart_fast_0_uart_tx,Output,PIN_114,7,B7_N0,,,,,,

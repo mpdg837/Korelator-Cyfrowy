@@ -64,7 +64,7 @@ endmodule
 
 module tim_tickGen#
 (
-	parameter MAX_TIM = 50000
+	parameter MAX_TIM = 50
 )(
 	input clk,
 	input rst,

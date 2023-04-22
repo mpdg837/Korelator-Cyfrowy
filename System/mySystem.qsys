@@ -9,14 +9,6 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
-   element Buzzer.s0
-   {
-      datum baseAddress
-      {
-         value = "24896";
-         type = "String";
-      }
-   }
    element CPU
    {
       datum _sortIndex
@@ -45,7 +37,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "5";
          type = "int";
       }
    }
@@ -73,22 +65,6 @@
          type = "String";
       }
    }
-   element Input
-   {
-      datum _sortIndex
-      {
-         value = "6";
-         type = "int";
-      }
-   }
-   element Input.s0
-   {
-      datum baseAddress
-      {
-         value = "24832";
-         type = "String";
-      }
-   }
    element RAM
    {
       datum _sortIndex
@@ -97,15 +73,15 @@
          type = "int";
       }
    }
-   element Seven_Segment_Display
+   element SegmentDisplay_0
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "8";
          type = "int";
       }
    }
-   element Seven_Segment_Display.s0
+   element SegmentDisplay_0.s0
    {
       datum baseAddress
       {
@@ -117,7 +93,7 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "4";
          type = "int";
       }
    }
@@ -133,7 +109,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "6";
          type = "int";
       }
    }
@@ -142,6 +118,38 @@
       datum baseAddress
       {
          value = "28672";
+         type = "String";
+      }
+   }
+   element input_key_0
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+   }
+   element input_key_0.s0
+   {
+      datum baseAddress
+      {
+         value = "24832";
+         type = "String";
+      }
+   }
+   element mySystem
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
+         type = "String";
+      }
+   }
+   element mySystem
+   {
+      datum _originalDeviceFamily
+      {
+         value = "Cyclone IV E";
          type = "String";
       }
    }
@@ -192,19 +200,20 @@
  <instanceScript></instanceScript>
  <interface name="clk" internal="Clock.clk_in" type="clock" dir="end" />
  <interface
-   name="inputin"
-   internal="Input.external_output"
+   name="input_key_0_keys"
+   internal="input_key_0.keys"
    type="conduit"
    dir="end" />
  <interface name="reset" internal="Clock.clk_in_reset" type="reset" dir="end" />
  <interface
-   name="sevensegment"
-   internal="Seven_Segment_Display.external_output"
+   name="segmentdisplay_0_display"
+   internal="SegmentDisplay_0.display"
    type="conduit"
    dir="end" />
+ <interface name="uart_fast_0_conduit_end" internal="UART_Fast_0.conduit_end" />
  <interface
-   name="uart"
-   internal="UART_Fast_0.conduit_end"
+   name="uart_fast_0_uart"
+   internal="UART_Fast_0.UART"
    type="conduit"
    dir="end" />
  <module name="CPU" kind="altera_nios2_gen2" version="18.1" enabled="1">
@@ -227,7 +236,7 @@
   <parameter name="dataAddrWidth" value="15" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='RAM.s1' start='0x0' end='0x4000' type='altera_avalon_onchip_memory2.s1' /><slave name='CPU.debug_mem_slave' start='0x4000' end='0x4800' type='altera_nios2_gen2.debug_mem_slave' /><slave name='Debug_UART.avalon_jtag_slave' start='0x5000' end='0x5008' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='Seven_Segment_Display.s0' start='0x6000' end='0x6080' type='seg7.s0' /><slave name='System_Timer.s0' start='0x6080' end='0x6090' type='system_timer.s0' /><slave name='Input.s0' start='0x6100' end='0x6140' type='input_key.s0' /><slave name='UART_Fast_0.s0' start='0x7000' end='0x7020' type='UART_Fast.s0' /><slave name='Conclover_0.s0' start='0x7100' end='0x7180' type='Conclover.s0' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='RAM.s1' start='0x0' end='0x4000' type='altera_avalon_onchip_memory2.s1' /><slave name='CPU.debug_mem_slave' start='0x4000' end='0x4800' type='altera_nios2_gen2.debug_mem_slave' /><slave name='Debug_UART.avalon_jtag_slave' start='0x5000' end='0x5008' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='SegmentDisplay_0.s0' start='0x6000' end='0x6080' type='SegmentDisplay.s0' /><slave name='System_Timer.s0' start='0x6080' end='0x6090' type='system_timer.s0' /><slave name='input_key_0.s0' start='0x6100' end='0x6140' type='input_key.s0' /><slave name='UART_Fast_0.s0' start='0x7000' end='0x7020' type='UART_Fast.s0' /><slave name='Conclover_0.s0' start='0x7100' end='0x7180' type='Conclover.s0' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -411,7 +420,6 @@
   <parameter name="writeBufferDepth" value="64" />
   <parameter name="writeIRQThreshold" value="8" />
  </module>
- <module name="Input" kind="input_key" version="1.0" enabled="1" />
  <module
    name="RAM"
    kind="altera_avalon_onchip_memory2"
@@ -444,9 +452,14 @@
   <parameter name="useShallowMemBlocks" value="false" />
   <parameter name="writable" value="true" />
  </module>
- <module name="Seven_Segment_Display" kind="seg7" version="1.0" enabled="1" />
+ <module
+   name="SegmentDisplay_0"
+   kind="SegmentDisplay"
+   version="1.0"
+   enabled="1" />
  <module name="System_Timer" kind="system_timer" version="1.0" enabled="1" />
  <module name="UART_Fast_0" kind="UART_Fast" version="1.0" enabled="1" />
+ <module name="input_key_0" kind="input_key" version="1.0" enabled="1" />
  <connection
    kind="avalon"
    version="18.1"
@@ -469,23 +482,18 @@
    kind="avalon"
    version="18.1"
    start="CPU.data_master"
-   end="Seven_Segment_Display.s0">
+   end="System_Timer.s0">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x6000" />
+  <parameter name="baseAddress" value="0x6080" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
    kind="avalon"
    version="18.1"
    start="CPU.data_master"
-   end="System_Timer.s0">
+   end="Conclover_0.s0">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x6080" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection kind="avalon" version="18.1" start="CPU.data_master" end="Input.s0">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x6100" />
+  <parameter name="baseAddress" value="0x7100" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -501,9 +509,18 @@
    kind="avalon"
    version="18.1"
    start="CPU.data_master"
-   end="Conclover_0.s0">
+   end="input_key_0.s0">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x7100" />
+  <parameter name="baseAddress" value="0x6100" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="CPU.data_master"
+   end="SegmentDisplay_0.s0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x6000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="18.1" start="CPU.data_master" end="RAM.s1">
@@ -529,12 +546,12 @@
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
- <connection kind="avalon" version="18.1" start="UART_Fast_0.m1" end="RAM.s1">
+ <connection kind="avalon" version="18.1" start="Conclover_0.m1" end="RAM.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
- <connection kind="avalon" version="18.1" start="Conclover_0.m1" end="RAM.s1">
+ <connection kind="avalon" version="18.1" start="UART_Fast_0.m1" end="RAM.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
@@ -546,15 +563,15 @@
    kind="clock"
    version="18.1"
    start="Clock.clk"
-   end="Seven_Segment_Display.clock" />
+   end="System_Timer.clock" />
+ <connection kind="clock" version="18.1" start="Clock.clk" end="Conclover_0.clock" />
+ <connection kind="clock" version="18.1" start="Clock.clk" end="UART_Fast_0.clock" />
+ <connection kind="clock" version="18.1" start="Clock.clk" end="input_key_0.clock" />
  <connection
    kind="clock"
    version="18.1"
    start="Clock.clk"
-   end="System_Timer.clock" />
- <connection kind="clock" version="18.1" start="Clock.clk" end="Input.clock" />
- <connection kind="clock" version="18.1" start="Clock.clk" end="UART_Fast_0.clock" />
- <connection kind="clock" version="18.1" start="Clock.clk" end="Conclover_0.clock" />
+   end="SegmentDisplay_0.clock" />
  <connection kind="interrupt" version="18.1" start="CPU.irq" end="Debug_UART.irq">
   <parameter name="irqNumber" value="0" />
  </connection>
@@ -568,13 +585,12 @@
    kind="reset"
    version="18.1"
    start="Clock.clk_reset"
-   end="Seven_Segment_Display.reset" />
+   end="System_Timer.reset" />
  <connection
    kind="reset"
    version="18.1"
    start="Clock.clk_reset"
-   end="System_Timer.reset" />
- <connection kind="reset" version="18.1" start="Clock.clk_reset" end="Input.reset" />
+   end="Conclover_0.reset" />
  <connection
    kind="reset"
    version="18.1"
@@ -584,7 +600,12 @@
    kind="reset"
    version="18.1"
    start="Clock.clk_reset"
-   end="Conclover_0.reset" />
+   end="input_key_0.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="Clock.clk_reset"
+   end="SegmentDisplay_0.reset" />
  <connection kind="reset" version="18.1" start="Clock.clk_reset" end="RAM.reset1" />
  <connection
    kind="reset"
@@ -600,17 +621,12 @@
    kind="reset"
    version="18.1"
    start="CPU.debug_reset_request"
-   end="Seven_Segment_Display.reset" />
- <connection
-   kind="reset"
-   version="18.1"
-   start="CPU.debug_reset_request"
    end="System_Timer.reset" />
  <connection
    kind="reset"
    version="18.1"
    start="CPU.debug_reset_request"
-   end="Input.reset" />
+   end="Conclover_0.reset" />
  <connection
    kind="reset"
    version="18.1"
@@ -620,7 +636,12 @@
    kind="reset"
    version="18.1"
    start="CPU.debug_reset_request"
-   end="Conclover_0.reset" />
+   end="input_key_0.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="CPU.debug_reset_request"
+   end="SegmentDisplay_0.reset" />
  <connection
    kind="reset"
    version="18.1"

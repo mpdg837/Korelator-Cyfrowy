@@ -1,10 +1,12 @@
-#ifndef UART_FILE
-#define UART_FILE
+#ifdef FAST_UART_FILE
+#define FAST_UART_FILE
 
-int sendIt(char*);
-int receive(char*,int,int);
-int beginReceiver(char*,int);
-int receiveSingleLine(char*, int, int);
+typedef int uart_len;
+
+int sendIt(char*,uart_len);
+uart_len receive(char*);
+int beginReceiver(char*,uart_len);
+uart_len receiveSinglePacket(char*, uart_len, uart_len);
 void closeReceiver();
 
-#endif UART_FILE
+#endif

@@ -1,14 +1,16 @@
-#include "./uart_connection.h"
+#include "./uart_connection.c"
 
-int sendIt(char* message){
+typedef int uart_len;
+
+int sendIt(char* message,uart_len len){
 
 	while (*FAST_SERIAL_SEND_WORK == 1);
 
 	char* startAddr = &message[0];
 	char* stopAddr = 0;
 
-	for(int n=0;n<2048;n++){
-		if(message[n] == '\n'){
+	for(int n=0;n<len;n++){
+		if(n == len - 1){
 			stopAddr = &message[n];
 			break;
 		}

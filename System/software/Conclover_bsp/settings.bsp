@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>2023-04-14 23:15:23</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1681506923587</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>2023-04-22 22:41:55</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1682196115666</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>E:\IOTProject1\software\Conclover_bsp</BspGeneratedLocation>
         <BspSettingsFile>.\settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\mySystem.sopcinfo</SopcDesignFile>
@@ -911,7 +911,7 @@
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>Seven_Segment_Display</slaveDescriptor>
+                <slaveDescriptor>SegmentDisplay_0</slaveDescriptor>
                 <addressRange>0x00006000 - 0x0000607F</addressRange>
                 <addressSpan>128</addressSpan>
                 <attributes/>
@@ -923,7 +923,7 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>Input</slaveDescriptor>
+                <slaveDescriptor>input_key_0</slaveDescriptor>
                 <addressRange>0x00006100 - 0x0000613F</addressRange>
                 <addressSpan>64</addressSpan>
                 <attributes/>

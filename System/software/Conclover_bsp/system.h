@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'mySystem'
  * SOPC Builder design path: ../../mySystem.sopcinfo
  *
- * Generated: Fri Apr 14 23:15:24 CEST 2023
+ * Generated: Sat Apr 22 22:41:57 CEST 2023
  */
 
 /*
@@ -170,23 +170,9 @@
 #define __ALTERA_NIOS2_GEN2
 #define __CONCLOVER
 #define __INPUT_KEY
-#define __SEG7
+#define __SEGMENTDISPLAY
 #define __SYSTEM_TIMER
 #define __UART_FAST
-
-
-/*
- * Input configuration
- *
- */
-
-#define ALT_MODULE_CLASS_Input input_key
-#define INPUT_BASE 0x6100
-#define INPUT_IRQ -1
-#define INPUT_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define INPUT_NAME "/dev/Input"
-#define INPUT_SPAN 64
-#define INPUT_TYPE "input_key"
 
 
 /*
@@ -219,17 +205,17 @@
 
 
 /*
- * Seven_Segment_Display configuration
+ * SegmentDisplay_0 configuration
  *
  */
 
-#define ALT_MODULE_CLASS_Seven_Segment_Display seg7
-#define SEVEN_SEGMENT_DISPLAY_BASE 0x6000
-#define SEVEN_SEGMENT_DISPLAY_IRQ -1
-#define SEVEN_SEGMENT_DISPLAY_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define SEVEN_SEGMENT_DISPLAY_NAME "/dev/Seven_Segment_Display"
-#define SEVEN_SEGMENT_DISPLAY_SPAN 128
-#define SEVEN_SEGMENT_DISPLAY_TYPE "seg7"
+#define ALT_MODULE_CLASS_SegmentDisplay_0 SegmentDisplay
+#define SEGMENTDISPLAY_0_BASE 0x6000
+#define SEGMENTDISPLAY_0_IRQ -1
+#define SEGMENTDISPLAY_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define SEGMENTDISPLAY_0_NAME "/dev/SegmentDisplay_0"
+#define SEGMENTDISPLAY_0_SPAN 128
+#define SEGMENTDISPLAY_0_TYPE "SegmentDisplay"
 
 
 /*
@@ -305,5 +291,19 @@
 #define ALT_MAX_FD 4
 #define ALT_SYS_CLK none
 #define ALT_TIMESTAMP_CLK none
+
+
+/*
+ * input_key_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_input_key_0 input_key
+#define INPUT_KEY_0_BASE 0x6100
+#define INPUT_KEY_0_IRQ -1
+#define INPUT_KEY_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define INPUT_KEY_0_NAME "/dev/input_key_0"
+#define INPUT_KEY_0_SPAN 64
+#define INPUT_KEY_0_TYPE "input_key"
 
 #endif /* __SYSTEM_H_ */

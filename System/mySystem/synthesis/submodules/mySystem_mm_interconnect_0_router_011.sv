@@ -197,11 +197,11 @@ module mySystem_mm_interconnect_0_router_011
             src_channel = 8'b0010;
         end
 
-        if (destid == 3 ) begin
+        if (destid == 2 ) begin
             src_channel = 8'b0100;
         end
 
-        if (destid == 2 ) begin
+        if (destid == 3 ) begin
             src_channel = 8'b1000;
         end
 

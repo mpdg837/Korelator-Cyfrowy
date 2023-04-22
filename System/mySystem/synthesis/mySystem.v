@@ -4,14 +4,14 @@
 
 `timescale 1 ps / 1 ps
 module mySystem (
-		input  wire       clk_clk,              //          clk.clk
-		input  wire [3:0] inputin_keys,         //      inputin.keys
-		output wire [3:0] inputin_leds,         //             .leds
-		input  wire       reset_reset_n,        //        reset.reset_n
-		output wire [3:0] sevensegment_output1, // sevensegment.output1
-		output wire [7:0] sevensegment_output,  //             .output
-		input  wire       uart_rx,              //         uart.rx
-		output wire       uart_tx               //             .tx
+		input  wire       clk_clk,                            //                      clk.clk
+		input  wire [3:0] input_key_0_keys_writebyteenable_n, //         input_key_0_keys.writebyteenable_n
+		output wire [3:0] input_key_0_keys_readdata,          //                         .readdata
+		input  wire       reset_reset_n,                      //                    reset.reset_n
+		output wire [3:0] segmentdisplay_0_display_select,    // segmentdisplay_0_display.select
+		output wire [7:0] segmentdisplay_0_display_segment,   //                         .segment
+		input  wire       uart_fast_0_uart_rx,                //         uart_fast_0_uart.rx
+		output wire       uart_fast_0_uart_tx                 //                         .tx
 	);
 
 	wire  [31:0] cpu_data_master_readdata;                                   // mm_interconnect_0:CPU_data_master_readdata -> CPU:d_readdata
@@ -26,13 +26,6 @@ module mySystem (
 	wire         cpu_instruction_master_waitrequest;                         // mm_interconnect_0:CPU_instruction_master_waitrequest -> CPU:i_waitrequest
 	wire  [14:0] cpu_instruction_master_address;                             // CPU:i_address -> mm_interconnect_0:CPU_instruction_master_address
 	wire         cpu_instruction_master_read;                                // CPU:i_read -> mm_interconnect_0:CPU_instruction_master_read
-	wire         uart_fast_0_m1_waitrequest;                                 // mm_interconnect_0:UART_Fast_0_m1_waitrequest -> UART_Fast_0:avm_m1_waitrequest
-	wire  [31:0] uart_fast_0_m1_readdata;                                    // mm_interconnect_0:UART_Fast_0_m1_readdata -> UART_Fast_0:avm_m1_readdata
-	wire         uart_fast_0_m1_read;                                        // UART_Fast_0:avm_m1_read -> mm_interconnect_0:UART_Fast_0_m1_read
-	wire  [15:0] uart_fast_0_m1_address;                                     // UART_Fast_0:avm_m1_address -> mm_interconnect_0:UART_Fast_0_m1_address
-	wire         uart_fast_0_m1_readdatavalid;                               // mm_interconnect_0:UART_Fast_0_m1_readdatavalid -> UART_Fast_0:avm_m1_readdatavalid
-	wire         uart_fast_0_m1_write;                                       // UART_Fast_0:avm_m1_write -> mm_interconnect_0:UART_Fast_0_m1_write
-	wire  [31:0] uart_fast_0_m1_writedata;                                   // UART_Fast_0:avm_m1_writedata -> mm_interconnect_0:UART_Fast_0_m1_writedata
 	wire         conclover_0_m1_waitrequest;                                 // mm_interconnect_0:Conclover_0_m1_waitrequest -> Conclover_0:avm_m1_waitrequest
 	wire  [31:0] conclover_0_m1_readdata;                                    // mm_interconnect_0:Conclover_0_m1_readdata -> Conclover_0:avm_m1_readdata
 	wire         conclover_0_m1_read;                                        // Conclover_0:avm_m1_read -> mm_interconnect_0:Conclover_0_m1_read
@@ -40,6 +33,13 @@ module mySystem (
 	wire         conclover_0_m1_readdatavalid;                               // mm_interconnect_0:Conclover_0_m1_readdatavalid -> Conclover_0:avm_m1_readdatavalid
 	wire         conclover_0_m1_write;                                       // Conclover_0:avm_m1_write -> mm_interconnect_0:Conclover_0_m1_write
 	wire  [31:0] conclover_0_m1_writedata;                                   // Conclover_0:avm_m1_writedata -> mm_interconnect_0:Conclover_0_m1_writedata
+	wire         uart_fast_0_m1_waitrequest;                                 // mm_interconnect_0:UART_Fast_0_m1_waitrequest -> UART_Fast_0:avm_m1_waitrequest
+	wire  [31:0] uart_fast_0_m1_readdata;                                    // mm_interconnect_0:UART_Fast_0_m1_readdata -> UART_Fast_0:avm_m1_readdata
+	wire         uart_fast_0_m1_read;                                        // UART_Fast_0:avm_m1_read -> mm_interconnect_0:UART_Fast_0_m1_read
+	wire  [15:0] uart_fast_0_m1_address;                                     // UART_Fast_0:avm_m1_address -> mm_interconnect_0:UART_Fast_0_m1_address
+	wire         uart_fast_0_m1_readdatavalid;                               // mm_interconnect_0:UART_Fast_0_m1_readdatavalid -> UART_Fast_0:avm_m1_readdatavalid
+	wire         uart_fast_0_m1_write;                                       // UART_Fast_0:avm_m1_write -> mm_interconnect_0:UART_Fast_0_m1_write
+	wire  [31:0] uart_fast_0_m1_writedata;                                   // UART_Fast_0:avm_m1_writedata -> mm_interconnect_0:UART_Fast_0_m1_writedata
 	wire         mm_interconnect_0_debug_uart_avalon_jtag_slave_chipselect;  // mm_interconnect_0:Debug_UART_avalon_jtag_slave_chipselect -> Debug_UART:av_chipselect
 	wire  [31:0] mm_interconnect_0_debug_uart_avalon_jtag_slave_readdata;    // Debug_UART:av_readdata -> mm_interconnect_0:Debug_UART_avalon_jtag_slave_readdata
 	wire         mm_interconnect_0_debug_uart_avalon_jtag_slave_waitrequest; // Debug_UART:av_waitrequest -> mm_interconnect_0:Debug_UART_avalon_jtag_slave_waitrequest
@@ -55,31 +55,31 @@ module mySystem (
 	wire   [3:0] mm_interconnect_0_cpu_debug_mem_slave_byteenable;           // mm_interconnect_0:CPU_debug_mem_slave_byteenable -> CPU:debug_mem_slave_byteenable
 	wire         mm_interconnect_0_cpu_debug_mem_slave_write;                // mm_interconnect_0:CPU_debug_mem_slave_write -> CPU:debug_mem_slave_write
 	wire  [31:0] mm_interconnect_0_cpu_debug_mem_slave_writedata;            // mm_interconnect_0:CPU_debug_mem_slave_writedata -> CPU:debug_mem_slave_writedata
-	wire  [31:0] mm_interconnect_0_seven_segment_display_s0_readdata;        // Seven_Segment_Display:avs_s0_readdata -> mm_interconnect_0:Seven_Segment_Display_s0_readdata
-	wire   [4:0] mm_interconnect_0_seven_segment_display_s0_address;         // mm_interconnect_0:Seven_Segment_Display_s0_address -> Seven_Segment_Display:avs_s0_address
-	wire         mm_interconnect_0_seven_segment_display_s0_read;            // mm_interconnect_0:Seven_Segment_Display_s0_read -> Seven_Segment_Display:avs_s0_read
-	wire         mm_interconnect_0_seven_segment_display_s0_write;           // mm_interconnect_0:Seven_Segment_Display_s0_write -> Seven_Segment_Display:avs_s0_write
-	wire  [31:0] mm_interconnect_0_seven_segment_display_s0_writedata;       // mm_interconnect_0:Seven_Segment_Display_s0_writedata -> Seven_Segment_Display:avs_s0_writedata
 	wire  [31:0] mm_interconnect_0_system_timer_s0_readdata;                 // System_Timer:avs_s0_readdata -> mm_interconnect_0:System_Timer_s0_readdata
 	wire   [1:0] mm_interconnect_0_system_timer_s0_address;                  // mm_interconnect_0:System_Timer_s0_address -> System_Timer:avs_s0_address
 	wire         mm_interconnect_0_system_timer_s0_read;                     // mm_interconnect_0:System_Timer_s0_read -> System_Timer:avs_s0_read
 	wire         mm_interconnect_0_system_timer_s0_write;                    // mm_interconnect_0:System_Timer_s0_write -> System_Timer:avs_s0_write
 	wire  [31:0] mm_interconnect_0_system_timer_s0_writedata;                // mm_interconnect_0:System_Timer_s0_writedata -> System_Timer:avs_s0_writedata
-	wire  [31:0] mm_interconnect_0_input_s0_readdata;                        // Input:avs_s0_readdata -> mm_interconnect_0:Input_s0_readdata
-	wire   [3:0] mm_interconnect_0_input_s0_address;                         // mm_interconnect_0:Input_s0_address -> Input:avs_s0_address
-	wire         mm_interconnect_0_input_s0_read;                            // mm_interconnect_0:Input_s0_read -> Input:avs_s0_read
-	wire         mm_interconnect_0_input_s0_write;                           // mm_interconnect_0:Input_s0_write -> Input:avs_s0_write
-	wire  [31:0] mm_interconnect_0_input_s0_writedata;                       // mm_interconnect_0:Input_s0_writedata -> Input:avs_s0_writedata
-	wire  [31:0] mm_interconnect_0_uart_fast_0_s0_readdata;                  // UART_Fast_0:avs_s0_readdata -> mm_interconnect_0:UART_Fast_0_s0_readdata
-	wire   [2:0] mm_interconnect_0_uart_fast_0_s0_address;                   // mm_interconnect_0:UART_Fast_0_s0_address -> UART_Fast_0:avs_s0_address
-	wire         mm_interconnect_0_uart_fast_0_s0_read;                      // mm_interconnect_0:UART_Fast_0_s0_read -> UART_Fast_0:avs_s0_read
-	wire         mm_interconnect_0_uart_fast_0_s0_write;                     // mm_interconnect_0:UART_Fast_0_s0_write -> UART_Fast_0:avs_s0_write
-	wire  [31:0] mm_interconnect_0_uart_fast_0_s0_writedata;                 // mm_interconnect_0:UART_Fast_0_s0_writedata -> UART_Fast_0:avs_s0_writedata
 	wire  [31:0] mm_interconnect_0_conclover_0_s0_readdata;                  // Conclover_0:avs_s0_readdata -> mm_interconnect_0:Conclover_0_s0_readdata
 	wire   [4:0] mm_interconnect_0_conclover_0_s0_address;                   // mm_interconnect_0:Conclover_0_s0_address -> Conclover_0:avs_s0_address
 	wire         mm_interconnect_0_conclover_0_s0_read;                      // mm_interconnect_0:Conclover_0_s0_read -> Conclover_0:avs_s0_read
 	wire         mm_interconnect_0_conclover_0_s0_write;                     // mm_interconnect_0:Conclover_0_s0_write -> Conclover_0:avs_s0_write
 	wire  [31:0] mm_interconnect_0_conclover_0_s0_writedata;                 // mm_interconnect_0:Conclover_0_s0_writedata -> Conclover_0:avs_s0_writedata
+	wire  [31:0] mm_interconnect_0_uart_fast_0_s0_readdata;                  // UART_Fast_0:avs_s0_readdata -> mm_interconnect_0:UART_Fast_0_s0_readdata
+	wire   [2:0] mm_interconnect_0_uart_fast_0_s0_address;                   // mm_interconnect_0:UART_Fast_0_s0_address -> UART_Fast_0:avs_s0_address
+	wire         mm_interconnect_0_uart_fast_0_s0_read;                      // mm_interconnect_0:UART_Fast_0_s0_read -> UART_Fast_0:avs_s0_read
+	wire         mm_interconnect_0_uart_fast_0_s0_write;                     // mm_interconnect_0:UART_Fast_0_s0_write -> UART_Fast_0:avs_s0_write
+	wire  [31:0] mm_interconnect_0_uart_fast_0_s0_writedata;                 // mm_interconnect_0:UART_Fast_0_s0_writedata -> UART_Fast_0:avs_s0_writedata
+	wire  [31:0] mm_interconnect_0_input_key_0_s0_readdata;                  // input_key_0:avs_s0_readdata -> mm_interconnect_0:input_key_0_s0_readdata
+	wire   [3:0] mm_interconnect_0_input_key_0_s0_address;                   // mm_interconnect_0:input_key_0_s0_address -> input_key_0:avs_s0_address
+	wire         mm_interconnect_0_input_key_0_s0_read;                      // mm_interconnect_0:input_key_0_s0_read -> input_key_0:avs_s0_read
+	wire         mm_interconnect_0_input_key_0_s0_write;                     // mm_interconnect_0:input_key_0_s0_write -> input_key_0:avs_s0_write
+	wire  [31:0] mm_interconnect_0_input_key_0_s0_writedata;                 // mm_interconnect_0:input_key_0_s0_writedata -> input_key_0:avs_s0_writedata
+	wire  [31:0] mm_interconnect_0_segmentdisplay_0_s0_readdata;             // SegmentDisplay_0:avs_s0_readdata -> mm_interconnect_0:SegmentDisplay_0_s0_readdata
+	wire   [4:0] mm_interconnect_0_segmentdisplay_0_s0_address;              // mm_interconnect_0:SegmentDisplay_0_s0_address -> SegmentDisplay_0:avs_s0_address
+	wire         mm_interconnect_0_segmentdisplay_0_s0_read;                 // mm_interconnect_0:SegmentDisplay_0_s0_read -> SegmentDisplay_0:avs_s0_read
+	wire         mm_interconnect_0_segmentdisplay_0_s0_write;                // mm_interconnect_0:SegmentDisplay_0_s0_write -> SegmentDisplay_0:avs_s0_write
+	wire  [31:0] mm_interconnect_0_segmentdisplay_0_s0_writedata;            // mm_interconnect_0:SegmentDisplay_0_s0_writedata -> SegmentDisplay_0:avs_s0_writedata
 	wire         mm_interconnect_0_ram_s1_chipselect;                        // mm_interconnect_0:RAM_s1_chipselect -> RAM:chipselect
 	wire  [31:0] mm_interconnect_0_ram_s1_readdata;                          // RAM:readdata -> mm_interconnect_0:RAM_s1_readdata
 	wire  [11:0] mm_interconnect_0_ram_s1_address;                           // mm_interconnect_0:RAM_s1_address -> RAM:address
@@ -89,7 +89,7 @@ module mySystem (
 	wire         mm_interconnect_0_ram_s1_clken;                             // mm_interconnect_0:RAM_s1_clken -> RAM:clken
 	wire         irq_mapper_receiver0_irq;                                   // Debug_UART:av_irq -> irq_mapper:receiver0_irq
 	wire  [31:0] cpu_irq_irq;                                                // irq_mapper:sender_irq -> CPU:irq
-	wire         rst_controller_reset_out_reset;                             // rst_controller:reset_out -> [CPU:reset_n, Conclover_0:rsi_reset_n, Debug_UART:rst_n, Input:rsi_reset_n, RAM:reset, Seven_Segment_Display:rsi_reset_n, System_Timer:rsi_reset_n, UART_Fast_0:rsi_reset_n, irq_mapper:reset, mm_interconnect_0:CPU_reset_reset_bridge_in_reset_reset, rst_translator:in_reset]
+	wire         rst_controller_reset_out_reset;                             // rst_controller:reset_out -> [CPU:reset_n, Conclover_0:rsi_reset_n, Debug_UART:rst_n, RAM:reset, SegmentDisplay_0:rsi_reset_n, System_Timer:rsi_reset_n, UART_Fast_0:rsi_reset_n, input_key_0:rsi_reset_n, irq_mapper:reset, mm_interconnect_0:CPU_reset_reset_bridge_in_reset_reset, rst_translator:in_reset]
 	wire         rst_controller_reset_out_reset_req;                         // rst_controller:reset_req -> [CPU:reset_req, RAM:reset_req, rst_translator:reset_req_in]
 	wire         cpu_debug_reset_request_reset;                              // CPU:debug_reset_request -> rst_controller:reset_in1
 
@@ -152,18 +152,6 @@ module mySystem (
 		.av_irq         (irq_mapper_receiver0_irq)                                    //               irq.irq
 	);
 
-	keyInput input_inst (
-		.csi_clk          (clk_clk),                              //           clock.clk
-		.rsi_reset_n      (~rst_controller_reset_out_reset),      //           reset.reset_n
-		.avs_s0_write     (mm_interconnect_0_input_s0_write),     //              s0.write
-		.avs_s0_read      (mm_interconnect_0_input_s0_read),      //                .read
-		.avs_s0_address   (mm_interconnect_0_input_s0_address),   //                .address
-		.avs_s0_writedata (mm_interconnect_0_input_s0_writedata), //                .writedata
-		.avs_s0_readdata  (mm_interconnect_0_input_s0_readdata),  //                .readdata
-		.in_key           (inputin_keys),                         // external_output.keys
-		.out_led          (inputin_leds)                          //                .leds
-	);
-
 	mySystem_RAM ram (
 		.clk        (clk_clk),                             //   clk1.clk
 		.address    (mm_interconnect_0_ram_s1_address),    //     s1.address
@@ -178,16 +166,16 @@ module mySystem (
 		.freeze     (1'b0)                                 // (terminated)
 	);
 
-	segmentDisplay seven_segment_display (
-		.csi_clk          (clk_clk),                                              //           clock.clk
-		.rsi_reset_n      (~rst_controller_reset_out_reset),                      //           reset.reset_n
-		.avs_s0_write     (mm_interconnect_0_seven_segment_display_s0_write),     //              s0.write
-		.avs_s0_read      (mm_interconnect_0_seven_segment_display_s0_read),      //                .read
-		.avs_s0_address   (mm_interconnect_0_seven_segment_display_s0_address),   //                .address
-		.avs_s0_writedata (mm_interconnect_0_seven_segment_display_s0_writedata), //                .writedata
-		.avs_s0_readdata  (mm_interconnect_0_seven_segment_display_s0_readdata),  //                .readdata
-		.out_dig          (sevensegment_output1),                                 // external_output.output1
-		.out_segment      (sevensegment_output)                                   //                .output
+	segmentDisplay segmentdisplay_0 (
+		.csi_clk          (clk_clk),                                         //   clock.clk
+		.rsi_reset_n      (~rst_controller_reset_out_reset),                 //   reset.reset_n
+		.avs_s0_write     (mm_interconnect_0_segmentdisplay_0_s0_write),     //      s0.write
+		.avs_s0_read      (mm_interconnect_0_segmentdisplay_0_s0_read),      //        .read
+		.avs_s0_address   (mm_interconnect_0_segmentdisplay_0_s0_address),   //        .address
+		.avs_s0_writedata (mm_interconnect_0_segmentdisplay_0_s0_writedata), //        .writedata
+		.avs_s0_readdata  (mm_interconnect_0_segmentdisplay_0_s0_readdata),  //        .readdata
+		.out_dig          (segmentdisplay_0_display_select),                 // display.select
+		.out_segment      (segmentdisplay_0_display_segment)                 //        .segment
 	);
 
 	timerModule system_timer (
@@ -201,22 +189,34 @@ module mySystem (
 	);
 
 	UART_Fast uart_fast_0 (
-		.csi_clk              (clk_clk),                                    //       clock.clk
-		.rsi_reset_n          (~rst_controller_reset_out_reset),            //       reset.reset_n
-		.avs_s0_write         (mm_interconnect_0_uart_fast_0_s0_write),     //          s0.write
-		.avs_s0_read          (mm_interconnect_0_uart_fast_0_s0_read),      //            .read
-		.avs_s0_address       (mm_interconnect_0_uart_fast_0_s0_address),   //            .address
-		.avs_s0_writedata     (mm_interconnect_0_uart_fast_0_s0_writedata), //            .writedata
-		.avs_s0_readdata      (mm_interconnect_0_uart_fast_0_s0_readdata),  //            .readdata
-		.avm_m1_write         (uart_fast_0_m1_write),                       //          m1.write
-		.avm_m1_read          (uart_fast_0_m1_read),                        //            .read
-		.avm_m1_waitrequest   (uart_fast_0_m1_waitrequest),                 //            .waitrequest
-		.avm_m1_readdatavalid (uart_fast_0_m1_readdatavalid),               //            .readdatavalid
-		.avm_m1_address       (uart_fast_0_m1_address),                     //            .address
-		.avm_m1_writedata     (uart_fast_0_m1_writedata),                   //            .writedata
-		.avm_m1_readdata      (uart_fast_0_m1_readdata),                    //            .readdata
-		.uart_rx              (uart_rx),                                    // conduit_end.rx
-		.uart_tx              (uart_tx)                                     //            .tx
+		.csi_clk              (clk_clk),                                    // clock.clk
+		.rsi_reset_n          (~rst_controller_reset_out_reset),            // reset.reset_n
+		.avs_s0_write         (mm_interconnect_0_uart_fast_0_s0_write),     //    s0.write
+		.avs_s0_read          (mm_interconnect_0_uart_fast_0_s0_read),      //      .read
+		.avs_s0_address       (mm_interconnect_0_uart_fast_0_s0_address),   //      .address
+		.avs_s0_writedata     (mm_interconnect_0_uart_fast_0_s0_writedata), //      .writedata
+		.avs_s0_readdata      (mm_interconnect_0_uart_fast_0_s0_readdata),  //      .readdata
+		.avm_m1_write         (uart_fast_0_m1_write),                       //    m1.write
+		.avm_m1_read          (uart_fast_0_m1_read),                        //      .read
+		.avm_m1_waitrequest   (uart_fast_0_m1_waitrequest),                 //      .waitrequest
+		.avm_m1_readdatavalid (uart_fast_0_m1_readdatavalid),               //      .readdatavalid
+		.avm_m1_address       (uart_fast_0_m1_address),                     //      .address
+		.avm_m1_writedata     (uart_fast_0_m1_writedata),                   //      .writedata
+		.avm_m1_readdata      (uart_fast_0_m1_readdata),                    //      .readdata
+		.uart_rx              (uart_fast_0_uart_rx),                        //  UART.rx
+		.uart_tx              (uart_fast_0_uart_tx)                         //      .tx
+	);
+
+	keyInput input_key_0 (
+		.csi_clk          (clk_clk),                                    // clock.clk
+		.rsi_reset_n      (~rst_controller_reset_out_reset),            // reset.reset_n
+		.avs_s0_write     (mm_interconnect_0_input_key_0_s0_write),     //    s0.write
+		.avs_s0_read      (mm_interconnect_0_input_key_0_s0_read),      //      .read
+		.avs_s0_address   (mm_interconnect_0_input_key_0_s0_address),   //      .address
+		.avs_s0_writedata (mm_interconnect_0_input_key_0_s0_writedata), //      .writedata
+		.avs_s0_readdata  (mm_interconnect_0_input_key_0_s0_readdata),  //      .readdata
+		.in_key           (input_key_0_keys_writebyteenable_n),         //  keys.writebyteenable_n
+		.out_led          (input_key_0_keys_readdata)                   //      .readdata
 	);
 
 	mySystem_mm_interconnect_0 mm_interconnect_0 (
@@ -268,11 +268,11 @@ module mySystem (
 		.Debug_UART_avalon_jtag_slave_writedata   (mm_interconnect_0_debug_uart_avalon_jtag_slave_writedata),   //                                .writedata
 		.Debug_UART_avalon_jtag_slave_waitrequest (mm_interconnect_0_debug_uart_avalon_jtag_slave_waitrequest), //                                .waitrequest
 		.Debug_UART_avalon_jtag_slave_chipselect  (mm_interconnect_0_debug_uart_avalon_jtag_slave_chipselect),  //                                .chipselect
-		.Input_s0_address                         (mm_interconnect_0_input_s0_address),                         //                        Input_s0.address
-		.Input_s0_write                           (mm_interconnect_0_input_s0_write),                           //                                .write
-		.Input_s0_read                            (mm_interconnect_0_input_s0_read),                            //                                .read
-		.Input_s0_readdata                        (mm_interconnect_0_input_s0_readdata),                        //                                .readdata
-		.Input_s0_writedata                       (mm_interconnect_0_input_s0_writedata),                       //                                .writedata
+		.input_key_0_s0_address                   (mm_interconnect_0_input_key_0_s0_address),                   //                  input_key_0_s0.address
+		.input_key_0_s0_write                     (mm_interconnect_0_input_key_0_s0_write),                     //                                .write
+		.input_key_0_s0_read                      (mm_interconnect_0_input_key_0_s0_read),                      //                                .read
+		.input_key_0_s0_readdata                  (mm_interconnect_0_input_key_0_s0_readdata),                  //                                .readdata
+		.input_key_0_s0_writedata                 (mm_interconnect_0_input_key_0_s0_writedata),                 //                                .writedata
 		.RAM_s1_address                           (mm_interconnect_0_ram_s1_address),                           //                          RAM_s1.address
 		.RAM_s1_write                             (mm_interconnect_0_ram_s1_write),                             //                                .write
 		.RAM_s1_readdata                          (mm_interconnect_0_ram_s1_readdata),                          //                                .readdata
@@ -280,11 +280,11 @@ module mySystem (
 		.RAM_s1_byteenable                        (mm_interconnect_0_ram_s1_byteenable),                        //                                .byteenable
 		.RAM_s1_chipselect                        (mm_interconnect_0_ram_s1_chipselect),                        //                                .chipselect
 		.RAM_s1_clken                             (mm_interconnect_0_ram_s1_clken),                             //                                .clken
-		.Seven_Segment_Display_s0_address         (mm_interconnect_0_seven_segment_display_s0_address),         //        Seven_Segment_Display_s0.address
-		.Seven_Segment_Display_s0_write           (mm_interconnect_0_seven_segment_display_s0_write),           //                                .write
-		.Seven_Segment_Display_s0_read            (mm_interconnect_0_seven_segment_display_s0_read),            //                                .read
-		.Seven_Segment_Display_s0_readdata        (mm_interconnect_0_seven_segment_display_s0_readdata),        //                                .readdata
-		.Seven_Segment_Display_s0_writedata       (mm_interconnect_0_seven_segment_display_s0_writedata),       //                                .writedata
+		.SegmentDisplay_0_s0_address              (mm_interconnect_0_segmentdisplay_0_s0_address),              //             SegmentDisplay_0_s0.address
+		.SegmentDisplay_0_s0_write                (mm_interconnect_0_segmentdisplay_0_s0_write),                //                                .write
+		.SegmentDisplay_0_s0_read                 (mm_interconnect_0_segmentdisplay_0_s0_read),                 //                                .read
+		.SegmentDisplay_0_s0_readdata             (mm_interconnect_0_segmentdisplay_0_s0_readdata),             //                                .readdata
+		.SegmentDisplay_0_s0_writedata            (mm_interconnect_0_segmentdisplay_0_s0_writedata),            //                                .writedata
 		.System_Timer_s0_address                  (mm_interconnect_0_system_timer_s0_address),                  //                 System_Timer_s0.address
 		.System_Timer_s0_write                    (mm_interconnect_0_system_timer_s0_write),                    //                                .write
 		.System_Timer_s0_read                     (mm_interconnect_0_system_timer_s0_read),                     //                                .read

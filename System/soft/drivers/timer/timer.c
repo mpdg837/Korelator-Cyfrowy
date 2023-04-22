@@ -1,6 +1,11 @@
 #include "./timer_connection.c"
 
-enum timer_indexes{TIMER1_INDEX = 0,TIMER2_INDEX = 1,TIMER3_INDEX = 2, TIMER4_INDEX = 3};
+typedef enum timer_indexes{
+		TIMER1_INDEX = 0,
+		TIMER2_INDEX = 1,
+		TIMER3_INDEX = 2,
+		TIMER4_INDEX = 3
+}tindex;
 
 void reset_timer(int indexTimer){
 	int* timerMem = TIMER1_ADDR;
@@ -15,7 +20,7 @@ int get_time(int indexTimer){
 	return *timerMem;
 }
 
-void set_timer(int indexTimer, int time){
+void set_timer(tindex indexTimer, int time){
 
 	int* timerMem = TIMER1_ADDR;
 	timerMem += indexTimer;

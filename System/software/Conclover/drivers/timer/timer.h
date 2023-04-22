@@ -13,4 +13,4 @@ int get_time(int);
 void set_timer(tindex, int);
 void wait(int);
 
-#endif TIMER_FILE
+#endif

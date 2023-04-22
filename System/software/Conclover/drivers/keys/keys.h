@@ -15,4 +15,4 @@ int wait_for_press();
 void wait_for_press_key(tofkey);
 tofkey detect_pressed_key();
 
-#endif KEYS_FILE
+#endif

@@ -18,6 +18,6 @@ void conclove(char* values, char* output, int len){
 	*START_SAVE_ADDR = &output[0];
 	*STOP_SAVE_ADDR = &output[len - 1];
 
-	*START = 1;
-	while(*STATUS == 1);
+	*START_CONCLOVE = 1;
+	while(*WORK_CONCLOVE == 1);
 }

@@ -83,7 +83,7 @@
 #include "drivers/drivers.c"
 
 #define BUFFER_RECEIVER_LEN 128
-#define MAX_RECEIVED_MESSAGE_LEN 2048
+#define MAX_RECEIVED_MESSAGE_LEN 128
 #define MAX_RECEIVE_TIME_OUT 120
 
 
@@ -99,7 +99,7 @@ int main()
   beginReceiver(buffer,BUFFER_RECEIVER_LEN);
   concloverSetValues(signal);
 
-  sendIt("AT+HELP\r\n");
+  sendIt("AT+HELP\r\n",9);
   char received[MAX_RECEIVED_MESSAGE_LEN];
   display_set_lightness(7);
 
@@ -121,9 +121,10 @@ int main()
 
   for(int n=0;n<len;n++){
 	  sum += in[n];
+	  alt_printf("%x. %x \n",n,in[n]);
 
 	  if(maxval < in[n]){
-		  nmax = n;
+		  nmax = n - 1;
 		  maxval = in[n];
 	  }
   }
