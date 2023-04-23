@@ -27,11 +27,34 @@ Poniżej znajduje się schemat przedstawiający architekturę systemu SOC użyte
 </p>
 
 Do budowy tego systemu użyto poniższych komponentów
+
 * Procesor 32-bitowy NIOS2/e
 * Układ korelatora wykorzystujący DMA dzięki magistrali Avalon MM Master. Zasadę działania objaśniono w pliku pdf znajdującym się w tym repozytorium. Dzięki zwielokrotnieniu procesu odczytywania/zapisywania oraz samych obliczeń (korelacji czyli 20 mnożeń na wykonywanych fizycznie na raz oraz obliczania wartości bezwzględnej z wartości korelacji ograniczonej do 8 bitów z 24)
 * Moduły I/O - moduł wyświetlacza 7-segmentowego z 4 cyframi oraz moduł przycisków
 * Moduł nadawczo odbiorczy FastUART o niestandardowej prędkości 1,22 Mbaud/s (100 kB/s) umożliwiający pobieranie danych za pomocą portu RS232 będącego na płytce
 * Moduły pomiaru czasu (4 x Timer o precyzji 1 us).
 
-# Testy
+Do tego systemu użyto oporgramowania wykorzystującego te moduły.
+
+# Działanie
  
+System zaczyna swoją pracę od stanu "PRESS" gdzie należy nacisnąć przycisk 1 (przycisk zaznacozny na czerwono).
+<p align='center'>
+<img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/Press.png" width="600" height="480">
+</p>
+
+Moduł wchodzi w stan "WAIT". W tym momencie należy uruchomić "emulator", czyli program w Pythonie (folder Tester) aby wysłał przykładowy odebrany przez laser sygnał. Port w komputerze musi wspierać prędkość 1,22 Mbaud (1 228 800). Po przełani sygnału o długości 5000 próbek moduł przejdzie do następnego stanu.
+<p align='center'>
+<img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/Wait.png" width="600" height="480">
+</p>
+
+Moduł wyświetla numer klatki, w której wystąpiła najlepsza korelacja. Aby przeliczyć te dane na dodatkowe kilometry należy wcisnąć przycisk 2 (przycisk zaznacozny na czerwono). 
+<p align='center'>
+<img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/Frame.png" width="600" height="480">
+</p>
+
+Wyszło 449 km co oznacza że łączna odległość wynosi 375449 km. Aby wrócić do stanu sprzed pomiaru należy wcisnąć przycisk 1. System wróci do stanu PRESS.
+<p align='center'>
+<img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/KM.png" width="600" height="480">
+</p>
+
