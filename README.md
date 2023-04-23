@@ -8,7 +8,7 @@ Najpierw  wciągu nieznanego czasu t0 wysłano wiązkę laserową zmodulowaną s
 Dla t = 2.5 ms odbite światło płynie przez 375000 km. Układ ten miał doprecyzować z precyzją do poniżej 1 km wspomnianą odległość. Schemat układu znajduje się poniżej.
 
 <p align='center'>
-<img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/Conclover.png"  width="700" height="400">
+<img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/Conclover.png"  width="800" height="400">
 </p>
 
 Port UART wychodzący z lasera ma prędkość zaledwie (a dla standardu UART aż) 100 kb/s (gdyż wykorzystano prędkość 1,22 Mbaud). Założono że pomiar 5 ms został zbuforowany i po odebraniu przesłany z mniejszą prędkością.
