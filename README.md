@@ -23,7 +23,7 @@ Układ ten pozwala na szybkie liczenie odległości dzięki procesowi korelacji,
 Poniżej znajduje się schemat przedstawiający architekturę systemu SOC użytego do tego pomiaru:
 
 <p align='center'>
-<img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/ArchitectureConclover.png"  width="800" height="400">
+<img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/ArchitectureConclover.png">
 </p>
 
 # Testy
