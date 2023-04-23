@@ -34,8 +34,12 @@ module conclover_memory_access(
 	output reg rdy
 );
 
-reg[15:0] f_addr;
-reg[15:0] n_addr;
+
+reg[15:0] f_addrr;
+reg[15:0] n_addrr;
+
+reg[15:0] f_addrw;
+reg[15:0] n_addrw;
 
 reg[7:0] f_savebuffer;
 reg[7:0] n_savebuffer;
@@ -80,7 +84,8 @@ always@(posedge clk or posedge rst) begin
 		f_savebufferint <= 0;
 		f_readbufferint <= 0;
 		
-		f_addr <= 0;
+		f_addrr <= 0;
+		f_addrw <= 0;
 	end
 	else begin
 		f_savebuffer <= n_savebuffer;
@@ -88,7 +93,8 @@ always@(posedge clk or posedge rst) begin
 		f_savebufferint <= n_savebufferint;
 		f_readbufferint <= n_readbufferint;
 		
-		f_addr <= n_addr;
+		f_addrr <= n_addrr;
+		f_addrw <= n_addrw;
 	end
 end
 
@@ -98,11 +104,11 @@ always@(*)begin
 	case(f_status)
 		IDLE: begin
 			if(read) begin
-				if(f_addr[15:2] == readaddr[15:2]) n_status = SELECT_READ;
+				if(f_addrr[15:2] == readaddr[15:2]) n_status = SELECT_READ;
 				else n_status = READ;
 			end
 			if(write) begin
-				if(f_addr[15:2] == saveaddr[15:2]) n_status = ADD_DATA_TO_SAVE;
+				if(f_addrw[15:2] == saveaddr[15:2]) n_status = ADD_DATA_TO_SAVE;
 				else n_status = SAVE;
 			end
 		end
@@ -118,7 +124,7 @@ always@(*)begin
 			if(~avm_m1_waitrequest) n_status = SAVE_DATA_READ;
 		end
 		SAVE_DATA_READ: if(avm_m1_readdatavalid) n_status = ADD_DATA_TO_SAVE;
-		ADD_DATA_TO_SAVE: if(f_addr[1:0] == 3 || f_addr == stop_write_offset) n_status = SAVE_DATA_TO_SAVE;
+		ADD_DATA_TO_SAVE: if(f_addrw[1:0] == 3 || f_addrw == stop_write_offset) n_status = SAVE_DATA_TO_SAVE;
 								else n_status = FINISH_SAVE;
 		SAVE_DATA_TO_SAVE: if(~avm_m1_waitrequest) n_status = FINISH_SAVE;
 		FINISH_SAVE: n_status = IDLE;
@@ -127,7 +133,8 @@ end
 
 always@(*) begin
 
-	n_addr = f_addr;
+	n_addrr = f_addrr;
+	n_addrw = f_addrw;
 	
 	n_savebuffer = f_savebuffer;
 	n_readbuffer = f_readbuffer;
@@ -147,22 +154,22 @@ always@(*) begin
 	case(f_status)
 		IDLE: begin
 			if(read) begin
-				n_addr = readaddr;
+				n_addrr = readaddr;
 			end
 			if(write) begin
-				n_addr = saveaddr;
+				n_addrw = saveaddr;
 				n_savebuffer = save_data;
 			end
 		end
 		READ: begin
 			avm_m1_read = 1;
-			avm_m1_address = {f_addr[15:2],2'b0};
+			avm_m1_address = {f_addrr[15:2],2'b0};
 		end
 		DATA_READ: begin
 			if(avm_m1_readdatavalid) n_readbufferint = avm_m1_readdata;
 		end
 		SELECT_READ: begin
-			case(f_addr[1:0])
+			case(f_addrr[1:0])
 				0: n_readbuffer = f_readbufferint[7:0];
 				1: n_readbuffer = f_readbufferint[15:8];
 				2: n_readbuffer = f_readbufferint[23:16];
@@ -176,13 +183,13 @@ always@(*) begin
 		end
 		SAVE: begin
 			avm_m1_read = 1;
-			avm_m1_address = {f_addr[15:2],2'b0};
+			avm_m1_address = {f_addrw[15:2],2'b0};
 		end
 		SAVE_DATA_READ: begin
 			if(avm_m1_readdatavalid) n_savebufferint = avm_m1_readdata;
 		end
 		ADD_DATA_TO_SAVE: begin
-			case(f_addr[1:0])
+			case(f_addrw[1:0])
 				0: n_savebufferint = {f_savebufferint[31:8],f_savebuffer};
 				1: n_savebufferint = {f_savebufferint[31:16],f_savebuffer,f_savebufferint[7:0]};
 				2: n_savebufferint = {f_savebufferint[31:24],f_savebuffer,f_savebufferint[15:0]};
@@ -191,7 +198,7 @@ always@(*) begin
 		end
 		SAVE_DATA_TO_SAVE: begin
 			avm_m1_write = 1;
-			avm_m1_address = {f_addr[15:2],2'b0};
+			avm_m1_address = {f_addrw[15:2],2'b0};
 			avm_m1_writedata = f_savebufferint;
 		end
 		FINISH_SAVE: rdy = 1;

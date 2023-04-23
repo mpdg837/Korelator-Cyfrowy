@@ -137,7 +137,7 @@ uart_receiver(.clk(csi_clk),
 				  .restart_tick(receiv_restart),
 				  
 				  .tick(receiv_tick),
-				  .rx(uart_rx),
+				  .rx(uart_rx & control_receiv_enable),
 	
 				  .character(receiv_character),
 				  .rdy(receiv_rdy),

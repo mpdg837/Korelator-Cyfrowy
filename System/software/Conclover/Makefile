@@ -143,13 +143,14 @@ ELF := Conclover.elf
 
 # Paths to C, C++, and assembly source files.
 C_SRCS += hello_world_small.c
-C_SRCS += drivers/conclover/conclover.c
-C_SRCS += drivers/display/display_stdio.c
-C_SRCS += drivers/keys/keys.c
-C_SRCS += drivers/timer/timer.c
-C_SRCS += utils/memory.c
-C_SRCS += drivers/uart/uart_receiver.c
-C_SRCS += drivers/uart/uart_transmitter.c
+C_SRCS += src/drivers/conclover/conclover.c
+C_SRCS += src/drivers/display/display_stdio.c
+C_SRCS += src/drivers/keys/keys.c
+C_SRCS += src/drivers/timer/timer.c
+C_SRCS += src/drivers/uart/uart_receiver.c
+C_SRCS += src/drivers/uart/uart_transmitter.c
+C_SRCS += src/utils/debug.c
+C_SRCS += src/utils/memory.c
 CXX_SRCS :=
 ASM_SRCS :=
 

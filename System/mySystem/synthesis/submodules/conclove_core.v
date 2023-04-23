@@ -125,6 +125,7 @@ always@(*) begin
 	
 	case(f_status)
 		LOAD_DATA: begin
+				n_abs = 0;
 				
 				rec = $signed(f_memread);
 				startrec = 1;
@@ -145,7 +146,7 @@ always@(*) begin
 					if(f_abs[24:20] == 0) save_data = f_abs[19:12];
 					else save_data = 255;
 
-				end
+				end else save_data = 0;
 				
 			end
 
@@ -178,6 +179,10 @@ always@(*)begin
 				n_reladdrread = 0;
 				n_reladdrsave = 0;
 				n_cycles = 0;
+				
+				n_memread = 0;
+				n_memsave = 0;
+				
 			end
 				
 			end
@@ -197,11 +202,8 @@ always@(*)begin
 			end
 		SAVE: begin
 		
-				if(f_cycles != 0) begin
-					rel_addr = f_reladdrsave;
-					write = 1;
-
-				end
+				rel_addr = f_reladdrsave;
+				write = 1;
 				
 			end
 		VERIFY: begin

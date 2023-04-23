@@ -4,8 +4,8 @@
 typedef int uart_len;
 
 int sendIt(char*,uart_len);
-uart_len receive(char*);
-int beginReceiver(char*,uart_len);
+uart_len receive(char*,uart_len);
+int beginReceiver(int*,uart_len);
 uart_len receiveSinglePacket(char*, uart_len, uart_len);
 void closeReceiver();
 

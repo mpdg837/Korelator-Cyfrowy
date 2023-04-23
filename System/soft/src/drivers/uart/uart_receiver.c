@@ -76,15 +76,17 @@ uart_len receiveTiming(char* received,uart_len lenMax){
 	  return n;
 }
 
-int beginReceiver(char* buffer, uart_len len){
+int beginReceiver(int* buffer, uart_len len){
+
+	char* lbuffer = (char*)buffer;
 
 	if(len > 0){
 		 *FAST_SERIAL_ENABLE_RECEIV = 0;
 
-		  cleanBuffer(buffer,len);
+		  cleanBuffer(lbuffer,len);
 
-		  *FAST_SERIAL_START_RECEIV = buffer;
-		  *FAST_SERIAL_STOP_RECEIV = buffer + len - 1;
+		  *FAST_SERIAL_START_RECEIV = lbuffer;
+		  *FAST_SERIAL_STOP_RECEIV = lbuffer + len - 1;
 
 		  wiad = *FAST_SERIAL_START_RECEIV;
 
