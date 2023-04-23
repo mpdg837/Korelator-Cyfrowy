@@ -38,7 +38,8 @@ Do tego systemu użyto oporgramowania wykorzystującego te moduły.
 
 # Działanie
  
-System zaczyna swoją pracę od stanu "PRESS" gdzie należy nacisnąć przycisk 1 (przycisk zaznacozny na czerwono).
+System zaczyna swoją pracę od stanu "PRESS" gdzie należy nacisnąć przycisk 1 (przycisk zaznacozny na czerwono). Aby system mógł dokonać pomiaru przed tym należy podłączyć do komputera przez dostępny na płytce port RS232 kabel do komputera (adapter USB to UART) tak jak na zdjęciu.
+
 <p align='center'>
 <img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/Press.png" width="600" height="480">
 </p>
