@@ -14,7 +14,7 @@ Schemat układu pomiarowego znajduje się poniżej.
 <img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/Conclover.png"  width="800" height="400">
 </p>
 
-Port UART wychodzący z lasera ma prędkość zaledwie (a dla standardu UART aż) 100 kb/s (gdyż wykorzystano prędkość 1,22 Mbaud). Założono że pomiar 5 ms został zbuforowany i po odebraniu przesłany z mniejszą prędkością. Użyto tego standardu gdyż jest nadal powszechnie wspierany, łatwy w implementacji oraz laser ten można łatwo emulować za pomocą komputera z zainstalowanym pakietem Python wraz z biblioteką wspierającą port szeregowy.
+Port UART wychodzący z lasera ma prędkość zaledwie (a dla standardu UART aż) 100 kB/s (gdyż wykorzystano prędkość 1,22 Mbaud). Założono że pomiar 5 ms został zbuforowany i po odebraniu przesłany z mniejszą prędkością. Użyto tego standardu gdyż jest nadal powszechnie wspierany, łatwy w implementacji oraz laser ten można łatwo emulować za pomocą komputera z zainstalowanym pakietem Python wraz z biblioteką wspierającą port szeregowy.
 
 Układ ten pozwala na szybkie liczenie odległości dzięki procesowi korelacji, która z mocno zaszumionego sygnału umożliwia wykrycie żądanego przebiegu. Aby przystosować ten system do możliwie najszybszych obliczeń na jakie pozwala technologia FPGA należało zaprojektować architekturę tego systemu.
 
@@ -25,6 +25,13 @@ Poniżej znajduje się schemat przedstawiający architekturę systemu SOC użyte
 <p align='center'>
 <img src="https://github.com/mpdg837/Korelator-Cyfrowy/blob/main/ArchitectureConclover.png">
 </p>
+
+Do budowy tego systemu użyto poniższych komponentów
+* Procesor 32-bitowy NIOS2/e
+* Układ korelatora wykorzystujący DMA dzięki magistrali Avalon MM Master. Zasadę działania objaśniono w pliku pdf znajdującym się w tym repozytorium. Dzięki zwielokrotnieniu procesu odczytywania/zapisywania oraz samych obliczeń (korelacji czyli 20 mnożeń na wykonywanych fizycznie na raz oraz obliczania wartości bezwzględnej z wartości korelacji ograniczonej do 8 bitów z 24)
+* Moduły I/O - moduł wyświetlacza 7-segmentowego z 4 cyframi oraz moduł przycisków
+* Moduł nadawczo odbiorczy FastUART o niestandardowej prędkości 1,22 Mbaud/s (100 kB/s) umożliwiający pobieranie danych za pomocą portu RS232 będącego na płytce
+* Moduły pomiaru czasu (4 x Timer o precyzji 1 us).
 
 # Testy
  
